@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const database = require('../database/user');
-const authenticate = require('../authenticate');
+const database = require('../../database/user');
+const authenticate = require('../../authenticate');
 const unirest = require('unirest');
 
 router.use(function (req, res, next) {
