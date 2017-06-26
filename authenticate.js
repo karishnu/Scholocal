@@ -12,7 +12,7 @@ function authenticate(req, res) {
                 res.send({code: '1', message: 'User Not Found!'});
             }
             else {
-                var token = jwt.sign(user, consts.secret);
+                const token = jwt.sign(user, consts.secret);
 
                 // return the information including token as JSON
                 res.header("Set-Cookie","x-access-token="+token);
@@ -44,7 +44,7 @@ function authenticate_user(username, password, callback) {
 function check_token(req, res, next) {
 
     // check header or url parameters or post parameters for token
-    var token = req.headers['x-access-token'];
+    const token = req.headers['x-access-token'];
     // decode token
     if (token) {
 

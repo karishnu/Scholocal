@@ -20,6 +20,12 @@ const userSchema = mongoose.Schema({
         expertise: String,
         location: String,
         contact: String
+    },
+    faculty: {
+        bio: String,
+        expertise: String,
+        location: String,
+        contact: String
     }
 });
 
