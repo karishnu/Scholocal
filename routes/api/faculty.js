@@ -4,6 +4,10 @@ const database = require('../../database/faculty');
 const authenticate = require('../../authenticate');
 const unirest = require('unirest');
 
+router.use(function (req, res, next) {
+    authenticate.verify_token(req, res, next);
+});
+
 router.get('/', function (req, res, next) {
 
     let uname;
