@@ -1,0 +1,215 @@
+
+  *{
+    font-family: 'Montserrat';
+  }
+  .navbar{
+    background: transparent;
+    color: white;
+    border: none;
+  }
+  .navbar a{
+    color: white!important;
+    font-size: 120%!important;
+  }
+  #mycarousel{
+    position: relative;
+    top: -75px;
+    z-index: -1;
+  }
+  .carousel-caption {
+    display: inline-block;
+    padding: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .carousel-caption p{
+    font-size: 350%;
+    font-weight: 200;
+  }
+  .carousel-caption h3{
+    font-size: 400%;
+    font-weight: 700;
+  }
+  .item{
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+  }
+  .full-screen {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+.navbar-nav{
+  margin-left: 27%;
+}
+.btn-custom{
+  padding: 1%;
+  border: 1px solid white;
+  margin-left: 5px;
+  border-radius: 3px;
+}
+.btn-custom:hover{
+  background: white!important;
+  color: black!important;
+  transition: 0.3s;
+}
+.know-more{
+  text-align: center;
+  font-weight: 700;
+  position: relative;
+  top: -250px;
+  color: white;
+  font-size: 250%;
+}
+.no-margin{
+  margin: 0px!important;
+}
+.no-padding{
+  padding: 0px!important;
+}
+.how-it-works h1{
+  color: #34536f;
+  font-weight: 700;
+  text-align: center;
+  margin-top: -150px;
+}
+h1{
+  color: #34536f;
+  font-weight: 700;
+  text-align: center;
+}
+.nav-pills li a{
+  color: #34536f;
+}
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover{
+  background: #34536f;
+}
+.nav-pills{
+  font-size: 150%;
+}
+.nav-pills li.active{
+  background: #34536f!important;
+}
+.blue-text{
+  color: #34536f!important;
+}
+#search{
+  background: #34536f;
+}
+.custom-input{
+  border: 5px solid white;
+  background: #71879a;
+  height: 50px;
+  border-radius: 5px;
+  padding: 0% 1%;
+  color: white;
+}
+.custom-input::placeholder{
+  color: #a7b5c0;
+}
+
+@media only screen and (min-device-width: 300px) and (max-device-width: 600px){
+  .navbar{
+    background: black!important;
+  }
+  .btn-custom{
+    padding: 1%;
+    border: 1px solid white;
+    margin-left: -10px;
+    width: 45%;
+    margin-bottom: 10px;
+    border-radius: 3px;
+  }
+  .carousel-caption p{
+    font-size: 250%;
+    font-weight: 200;
+  }
+  .carousel-caption h3{
+    font-size: 300%;
+    font-weight: 700;
+  }
+  .know-more{
+    top: -160px;
+  }
+  .tab-pane .row .col-md-3{
+    text-align: center;
+  }
+  #one,#two,#three{
+    margin-left: 25px;
+  }
+}
+
+
+
+#custom-search-input {
+        margin:0;
+        margin-top: 15px;
+        padding: 0;
+        width: 60%;
+        margin-left: 22%;
+    }
+
+    #custom-search-input .search-query {
+        padding-right: 3px;
+        padding-right: 4px \9;
+        padding-left: 3px;
+        padding-left: 4px \9;
+        /* IE7-8 doesn't have border-radius, so don't indent the padding */
+        margin-bottom: 0;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+    }
+    #custom-search-input .search-query:focus{
+      border: 5px solid white;
+    }
+    #custom-search-input button {
+        border: 0;
+        background: none;
+        /** belows styles are working good */
+        padding: 2px 5px;
+        margin-top: 2px;
+        position: relative;
+        left: -28px;
+        /* IE7-8 doesn't have border-radius, so don't indent the padding */
+        margin-bottom: 0;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        color:white;
+    }
+
+    .search-query:focus + button {
+        z-index: 3;
+    }
+#one{
+  background: url('../images/student.png') no-repeat;
+  background-size: contain;
+  height: 200px;
+}
+#two{
+  background: url('../images/faculty.png') no-repeat;
+  background-size: contain;
+  height: 200px;
+}
+#three{
+  background: url('../images/institute.png') no-repeat;
+  background-size: contain;
+  height: 200px;
+}
+.join div a{
+  color: white;
+  text-decoration: none;
+}
+.dark{
+  font-weight: 700;
+}
+.footer{
+  text-align: center;
+  color: white;
+  background: url('../images/footer.png') no-repeat;
+  background-size: cover;
+  background-position: center;
+}

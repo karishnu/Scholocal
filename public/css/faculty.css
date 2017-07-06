@@ -1,0 +1,89 @@
+*{
+  font-family: 'Montserrat';
+}
+nav{
+  background: white;
+  padding: 0% 1%;
+}
+ul li a{
+  color: #002163!important;
+  font-weight: 700;
+}
+.custom-input{
+  width: 30%!important;
+  border: 1px solid grey!important;
+  margin-left: 30%!important;
+  background: #dadada!important;
+  border-radius: 5px!important;
+  color: black!important;
+  text-indent: 5px!important;
+}
+.custom-input::placeholder{
+  color: grey!important;
+}
+.custom-input:focus{
+  border: 1px solid grey!important;
+  box-shadow: none!important;
+}
+.faculty-profile-large .stats{
+  background: #002163;
+  color: white;
+}
+.rating > span {
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
+  font-size: 120%;
+}
+/*.rating > span:hover:before,
+.rating > span:hover ~ span:before {
+   content: "\2605";
+   position: absolute;
+}*/
+.rating > span.filled:before,
+.rating > span.filled ~ span.filled:before {
+   content: "\2605";
+   position: absolute;
+}
+.header{
+  font-weight: bold;
+  font-size: 105%;
+}
+.blue-text{
+  color: #002163!important;
+}
+.row{
+  background: white;
+}
+body{
+  background: #002163;
+}
+.follow-button{
+  background: #002163;
+  color: white;
+  padding: 2%;
+}
+.tabs li a{
+  color: black!important;
+}
+.tabs li a.active{
+  color: #002163!important;
+}
+.tabs .indicator{
+  background: #002163!important;
+}
+.review-rating, .review-date{
+  color: #6a6a6a;
+}
+.review p{
+  margin-top: -10px;
+}
+@media only screen and (max-device-width: 600px) {
+  .custom-input{
+    width: 80%!important;
+    margin: 10px!important;
+  }
+  .hide-on-med-and-up{
+    display: block;
+  }
+}
