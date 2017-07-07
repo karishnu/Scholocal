@@ -1,4 +1,6 @@
-const app = require("express");
+const express = require("express");
+
+const app = express();
 
 const auth = require("./api/auth");
 const faculty = require("./api/faculty");
