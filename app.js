@@ -28,8 +28,7 @@ mongoose.connect(configDB.url); // connect to our database
 const api = require("./routes/api");
 const web = require("./routes/web");
 
-
-app.get('/', function (req, res) {
+app.get('/home', function (req, res) {
     res.render('index');
 });
 
