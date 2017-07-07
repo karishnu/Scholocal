@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/materialize.min.css">
+    <link rel="stylesheet" href="css/faculty.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/materialize.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-script.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,400,700" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  </head>
+  <body ng-app="app" ng-contoller="facultyController" ng-init="init()">
+
+   <div class="row faculty-profile-large">
+     <div class="navbar-fixed">
+       <ul id="dropdown1" class="dropdown-content">
+         <li><a href="#!">Edit Profile</a></li>
+         <li><a href="#!">Logout</a></li>
+       </ul>
+      <nav>
+        <div class="nav-wrapper row">
+          <a href="#!" class="left brand-logo"><img src="images/logo.png"></a>
+          <span class="hide-on-med-and-up"><br></span>
+          <form action="#" method="get" class="col s11 m10 l10 push-s1 push-m1 push-l1">
+            <input type="text" class="custom-input" placeholder="Search">
+          </form>
+          <span class="hide-on-med-and-up"><br></span>
+          <ul class="right brand-logo">
+            <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><img src="images/profile.png"><i class="material-icons right">arrow_drop_down</i></a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+     <div class="col m3 l3 stats">
+       <br><br>
+       <img src="images/profile1.png" style="width: 100%">
+       <h4 class="white-text" style="text-decoration: underline;">Stats</h4>
+       <p class="header">Rating:</p>
+       <p>
+         <span class="rating-text">3/5</span>
+         <span class="rating">
+          <span class="filled">☆</span>
+          <span class="filled">☆</span>
+          <span class="filled">☆</span>
+          <span>☆</span>
+          <span>☆</span>
+       </p>
+       <p class="header">Experience: </p>
+       <p>10 years</p>
+       <p class="header">Success Ratio: </p>
+       <p>88.2%</p>
+       <p class="header">Mode Of Teaching: </p>
+       <p>Class Room</p>
+       <p>Personal Coaching</p>
+       <p class="header">Current Institute: </p>
+       <p>Allen Coaching</p>
+      </div>
+      <div class="col m9 l9 data">
+        <br>
+        <div class="row">
+          <div class="col m8 l8">
+            <h4 class="blue-text">
+              Prof. John Doe
+            </h4>
+            <p class="grey-text">M.Tech. IIT-B</p>
+            <p style="">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <div class="row">
+              <div class="col m4 l4">
+                <p class="blue-text">Expertise</p>
+                <p>Organic Chem</p>
+              </div>
+              <div class="col m4 l4">
+                <p class="blue-text">Location</p>
+                <p>Delhi, India</p>
+              </div>
+              <div class="col m4 l4">
+                <p class="blue-text">Contact</p>
+                <p>Mobile: 9585581787</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s12">
+                <ul class="tabs">
+                  <li class="tab col s3"><a href="#timeline">Timeline</a></li>
+                  <li class="tab col s3"><a class="active" href="#reviews">Reviews</a></li>
+                  <li class="tab col s3"><a href="#achievements" style="font-size: 80%">Achievements</a></li>
+                  <li class="tab col s3"><a href="#experience">Experience</a></li>
+                </ul>
+              </div>
+              <div id="timeline" class="col s12">Test 1</div>
+              <div id="reviews" class="col s12">
+                <br><br>
+                <div class="review row">
+                  <div class="col s3">
+                    <img src="images/profile.png">
+                  </div>
+                  <div class="col s9 pull-s1" style="">
+                    <p class="review-text">
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </p>
+                    <p class="review-rating">
+                      <b>Rated:  3 <span class="blue-text">&#x2605;</span></b>
+                    </p>
+                    <p class="review-date">
+                      <b>30.01.2013</b>
+                    </p>
+                  </div>
+                </div>
+                <div class="review row">
+                  <div class="col s3">
+                    <img src="images/profile.png">
+                  </div>
+                  <div class="col s9 pull-s1" style="">
+                    <p class="review-text">
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </p>
+                    <p class="review-rating">
+                      <b>Rated:  3 <span class="blue-text">&#x2605;</span></b>
+                    </p>
+                    <p class="review-date">
+                      <b>30.01.2013</b>
+                    </p>
+                  </div>
+                </div>
+                <div class="review row">
+                  <div class="col s3">
+                    <img src="images/profile.png">
+                  </div>
+                  <div class="col s9 pull-s1" style="">
+                    <p class="review-text">
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </p>
+                    <p class="review-rating">
+                      <b>Rated:  3 <span class="blue-text">&#x2605;</span></b>
+                    </p>
+                    <p class="review-date">
+                      <b>30.01.2013</b>
+                    </p>
+                  </div>
+                </div>
+                <div class="review row">
+                  <div class="col s3">
+                    <img src="images/profile.png">
+                  </div>
+                  <div class="col s9 pull-s1" style="">
+                    <p class="review-text">
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </p>
+                    <p class="review-rating">
+                      <b>Rated:  3 <span class="blue-text">&#x2605;</span></b>
+                    </p>
+                    <p class="review-date">
+                      <b>30.01.2013</b>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div id="achievements" class="col s12">Test 3</div>
+              <div id="experience" class="col s12">Test 4</div>
+            </div>
+          </div>
+          <div class="col m4 l4">
+            <a href="#" class="follow-button"><i class="fa fa-rss"></i>&nbsp&nbspFollow</a>
+            <a href="#" class="follow-button">Download Profile</a>
+          </div>
+        </div>
+      </div>
+     </div>
+   </div>
+  </body>
+</html>
+<script>
+  $('.tabs').tabs();
+  $('.stats').height($('.data').height());
+</script>
