@@ -121,6 +121,39 @@ body{
   left: 86%;
   top: -1%;
 }
+.feed-single{
+  border-radius: 5px;
+  border: 2px solid #a9a9a9;
+  position: relative;
+}
+.feed-single .feed-header{
+  background: #002163;
+  font-size: 150%;
+}
+.feed-header img{
+  position: relative;
+  bottom: initial;
+  -webkit-transform: translateY(50%);
+   transform: translateY(50%);
+   position: relative;
+   top: 50%;
+   border: 2px solid white;
+}
+.feed-single .feed-time{
+  margin: 0px;
+  margin-left: 15%;
+  padding: 0px;
+}
+.feed-single .feed-content{
+  padding: 0% 5%;
+}
+.feed-single .feed-content img{
+  width: 100%;
+}
+.feed-single .feed-like a{
+  color: #444;
+  margin-left: 5%;
+}
 @media only screen and (max-device-width: 600px) {
   .custom-input{
     width: 80%!important;
