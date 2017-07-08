@@ -40,3 +40,30 @@ $(document).ready(function () {
 
   $('div.setup-panel div a.btn-primary').trigger('click');
 });
+
+function addMore(addType){
+  if(addType == "teaching-mode"){
+    var len = $('.teaching-mode').length + 1;
+    $('<div class="form-group row teaching-mode"><div class="col-xs-12 col-md-3"><label for="teaching-mode'+len+'">Mode Of Teaching</label></div><div class="col-xs-12 col-md-9"><input type="text" class="form-control" id="teaching-mode'+len+'" name="teaching-mode'+len+'" placeholder="Teaching Mode"></div></div>').insertAfter($('.teaching-mode').last());
+    $('#mode-count').val(len);
+  } else if(addType == 'achievement'){
+    var len = $('.achievement').length + 1;
+    $('<div class="form-group row achievement"><div class="col-xs-12 col-md-3"><label for="achievement'+len+'">Achievement</label></div><div class="col-xs-12 col-md-9"><input type="text" class="form-control" id="achievement'+len+'" name="acheivement'+len+'" placeholder="Achievement"><br><input type="text" class="form-control" name="acheivement-year'+len+'" placeholder="Year"></div></div>').insertAfter($('.achievement').last());
+    $('#achievement-count').val(len);
+  } else if(addType == 'experience'){
+    var len = $('.experience').length + 1;
+    $('<div class="form-group row experience">\
+    <div class="col-xs-12 col-md-3">\
+        <label for="experience'+len+'">Experience</label>\
+      </div>\
+      <div class="col-xs-12 col-md-9">\
+        <input type="text" class="form-control" name="experience'+len+'" placeholder="Experience Details">\
+        <br>\
+        <input type="text" class="form-control" name="experience-year'+len+'" placeholder="Year">\
+        <br>\
+        <input type="text" class="form-control" name="experience-location'+len+'" placeholder="Location">\
+      </div>\
+    </div>').insertAfter($('.experience').last());
+    $('#experience-count').val(len);
+  }
+}
