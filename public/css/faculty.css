@@ -78,6 +78,49 @@ body{
 .review p{
   margin-top: -10px;
 }
+.experience-field{
+  border-bottom: 1px solid grey;
+  padding: 3%;
+}
+.experience-field .experience-title p{
+  font-size: 150%;
+}
+.experience-field .experience-details p{
+  margin-top: -10px!important;
+  font-size: 90%;
+}
+.dropdown-button:hover{
+  background: none;
+}
+.post-feed{
+  padding: 2%;
+  /*background: #ccc;*/
+}
+.post-feed textarea{
+  height: 80px;
+  resize: none;
+  border-width: 2px;
+  text-indent: 5px;
+}
+.post-feed textarea:focus{
+  outline: none;
+}
+.post-feed p{
+  padding: 2%;
+  margin-top: -10px;
+  background: #a9a9a9;
+  position: relative;
+}
+.post-btn, .post-btn:focus{
+  padding: 2% 4%;
+  background: #002163;
+  color: white;
+  border: none;
+  outline: none;
+  position: absolute;
+  left: 86%;
+  top: -1%;
+}
 @media only screen and (max-device-width: 600px) {
   .custom-input{
     width: 80%!important;
