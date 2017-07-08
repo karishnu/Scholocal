@@ -15,4 +15,12 @@ router.get('/login', function (req, res) {
     res.render('login')
 });
 
+router.post('/login', function (req, res, next) {
+    authenticate.authenticate(req, res);
+});
+
+router.post('/save', function (req, res, next) {
+   console.log(req.body);
+});
+
 module.exports = router;

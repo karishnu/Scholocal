@@ -26,7 +26,7 @@
                     <label for="exampleInputEmail1">Email address</label>
                   </div>
                   <div class="col-xs-12 col-md-9">
-                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email" required>
+                    <input type="email" class="form-control" id="email" placeholder="Email" name="email" required>
                   </div>
                 </div>
                 <div class="form-group row">
@@ -42,11 +42,24 @@
                   <a href="#" class="pull-right">Forgot Password?</a></p>
                 </div>
                 <br><br>
-                <center><button class="btn btn-primary nextBtn btn-lg" type="submit">Submit</button></center>
+                <center><button class="btn btn-primary nextBtn btn-lg" type="submit" name="login">Submit</button></center>
               </div>
             </div>
           </div>
         </form>
+
+      <script type="text/javascript">
+          var user=$('#email').val(), pass=$('#password').val();
+          $('login').bind('click', function() {
+              $.ajax('/', {
+                  type: 'POST',
+                  contentType: 'text/json',
+                  data: JSON.stringify({email:user, password:pass}),
+                  complete: function() { /* Do something with the response. */ }
+              });
+              return false; // Prevent form submit.
+          });
+      </script>
 
       </div>
   </body>
