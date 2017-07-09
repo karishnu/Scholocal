@@ -25,17 +25,17 @@ router.post('/save', function (req, res, next) {
 
     console.log(req.body);
 
-    database.saveUserNew(req.body, function (err, doc) {
-        if (err && err.code === 11000) {
-            res.json({code: '1', message: 'You have already signed up!'})
-        }
-        else if (err && err.code !== 66) {
-            res.json({code: '1', message: err})
-        }
-        else {
-            authenticate.authenticate(req, res);
-        }
-    });
+    // database.saveUserNew(req.body, function (err, doc) {
+    //     if (err && err.code === 11000) {
+    //         res.json({code: '1', message: 'You have already signed up!'})
+    //     }
+    //     else if (err && err.code !== 66) {
+    //         res.json({code: '1', message: err})
+    //     }
+    //     else {
+    //         authenticate.authenticate(req, res);
+    //     }
+    // });
 });
 
 module.exports = router;
