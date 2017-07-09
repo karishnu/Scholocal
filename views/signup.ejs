@@ -5,13 +5,15 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/signup.css">
     <script src="js/jquery.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-script.js"></script>
     <script src="js/bootstrap.js"></script>
     <script src="js/signup.js"></script>
     <title>Sign Up</title>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:200,400,700" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   </head>
-  <body>
+  <body ng-app="app" ng-controller="registerController">
     <div class="container">
       <div class="row" style="padding-bottom: -10px;border-bottom: 1px solid #34536f;">
         <h1 style="color: #34536f;border-bottom: 5px solid #002163;width: 20%;position: relative;top: 13px;">Signup Form</h1>
@@ -94,8 +96,17 @@
                     <textarea name="address" id="addres" class="form-control"></textarea>
                   </div>
                 </div>
+                <div class="form-group row">
+                  <div class="col-xs-12 col-md-3">
+                    <label for="description">Description</label>
+                  </div>
+                  <div class="col-xs-12 col-md-9">
+                    <textarea name="description" id="description" class="form-control"></textarea>
+                  </div>
+                </div>
                 <br>
                 <center><button class="btn btn-primary nextBtn btn-lg" type="button" >Next</button></center>
+                <br>
               </div>
             </div>
           </div>
@@ -105,32 +116,69 @@
                 <br><br><br>
                 <div class="form-group row">
                   <div class="col-xs-12 col-md-3">
-                    <label for="schoolname">School Name</label>
+                    <label for="mobile">Education</label>
+                  </div>
+                  <div class="col-xs-12 col-md-9">
+                    <input type="text" name="degree" id="degree" placeholder="Degree" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-xs-12 col-md-3">
+                    <label for="schoolname">Current Institute Name</label>
                   </div>
                   <div class="col-xs-12 col-md-9">
                     <input type="text" class="form-control" id="schoolname" name="schoolName" placeholder="School Name">
                   </div>
                 </div>
-                <div class="form-group row">
+                <div class="form-group row teaching-mode">
                   <div class="col-xs-12 col-md-3">
-                    <label for="subjects">Subjects Opted</label>
+                    <label for="teaching-mode1">Mode Of Teaching</label>
                   </div>
                   <div class="col-xs-12 col-md-9">
-                    <input type="text" class="form-control" id="subjects" name="subjects" placeholder="Enter Subject Name" required>
+                    <input type="text" class="form-control" id="teaching-mode1" name="teaching-mode1" placeholder="Teaching Mode">
                   </div>
                 </div>
                 <div class="form-group row">
+                  <div class="right" style="float: right">
+                    <a href="#" class="right" onClick="addMore('teaching-mode')">Add More</a>
+                  </div>
+                </div>
+                <div class="form-group row achievement">
                   <div class="col-xs-12 col-md-3">
-                    <label for="institute">Current Institute</label>
+                    <label for="achievement1">Achievement</label>
                   </div>
                   <div class="col-xs-12 col-md-9">
-                    <input type="text" class="form-control" id="institute" name="institute" placeholder="Enter Institute Name" required>
+                    <input type="text" class="form-control" id="achievement1" name="acheivement1" placeholder="Achievement">
+                    <br>
+                    <input type="text" class="form-control" name="acheivement-year1" placeholder="Year">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="right" style="float: right">
+                    <a href="#" class="right" onClick="addMore('achievement')">Add More</a>
+                  </div>
+                </div>
+                <div class="form-group row experience">
+                  <div class="col-xs-12 col-md-3">
+                    <label for="experience1">Experience</label>
+                  </div>
+                  <div class="col-xs-12 col-md-9">
+                    <input type="text" class="form-control" name="experience1" placeholder="Experience Details">
+                    <br>
+                    <input type="text" class="form-control" name="experience-year1" placeholder="Year">
+                    <br>
+                    <input type="text" class="form-control" name="experience-location1" placeholder="Location">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="right" style="float: right">
+                    <a href="#" class="right" onClick="addMore('experience')">Add More</a>
                   </div>
                 </div>
               </div>
               <center>
                 <br><br>
-                <button class="btn btn-primary backBtn btn-lg pull-left" onclick="change('1')">Go Back</button>
+                <button class="btn btn-primary backBtn btn-lg pull-left" type="button" onclick="change('1')">Go Back</button>
                 <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
               </center>
             </div>
@@ -153,6 +201,9 @@
               </div>
             </div>
           </div>
+          <input type="hidden" id="mode-count" name="mode-count" value="1">
+          <input type="hidden" id="achievement-count" name="mode-count" value="1">
+          <input type="hidden" id="experience-count" name="mode-count" value="1">
         </form>
 
       </div>

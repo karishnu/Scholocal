@@ -213,3 +213,6 @@ h1{
   background-size: cover;
   background-position: center;
 }
+*:focus{
+  outline: none;
+}
