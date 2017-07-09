@@ -36,7 +36,7 @@ const userSchema = mongoose.Schema({
             details: String,
             year: String,
             location: String
-        }]
+        }],
         location: String,
         contact: String
     }
