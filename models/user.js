@@ -7,24 +7,36 @@ const userSchema = mongoose.Schema({
     password: {type: String, required: true},
     name_first: {type: String, required: true},
     name_last: {type: String, required: true},
+    mobile: {type: String, required: true},
+    address: {type: String, required: true},
+    description: {type: String, required: true},
     role: {type: String, required: true, enum: ['student', 'faculty', 'institute']},
+    dob: {type: String, required: true},
     student: {
         school: String,
-        bio: String,
         interests: String,
         location: String,
         contact: String,
         achievements: String
     },
     institute: {
-        bio: String,
         expertise: String,
         location: String,
         contact: String
     },
     faculty: {
-        bio: String,
-        expertise: String,
+        education: String,
+        current_institute: String,
+        mode_teaching: [String],
+        achievements: [{
+            details: String,
+            year: String
+        }],
+        experience: [{
+            details: String,
+            year: String,
+            location: String
+        }]
         location: String,
         contact: String
     }
