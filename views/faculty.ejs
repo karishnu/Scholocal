@@ -2,12 +2,12 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../public/css/materialize.min.css">
-    <link rel="stylesheet" href="../public/css/faculty.css">
-    <script src="../public/js/jquery.min.js"></script>
-    <script src="../public/js/materialize.min.js"></script>
-    <script src="../public/js/angular.min.js"></script>
-    <script src="../public/js/angular-script.js"></script>
+    <link rel="stylesheet" href="css/materialize.min.css">
+    <link rel="stylesheet" href="css/faculty.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/materialize.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-script.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:200,400,700" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -53,8 +53,11 @@
        <p class="header">Success Ratio: </p>
        <p>88.2%</p>
        <p class="header">Mode Of Teaching: </p>
-       <p>Class Room</p>
-       <p>Personal Coaching</p>
+       <ul>
+           <% faculty.faculty.mode_teaching.forEach(function(mode) { %>
+         <li><p><%= mode %></p></li>
+           <% }); %>
+       </ul>
        <p class="header">Current Institute: </p>
        <p>Allen Coaching</p>
       </div>
