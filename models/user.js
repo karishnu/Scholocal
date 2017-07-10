@@ -12,6 +12,7 @@ const userSchema = mongoose.Schema({
     description: {type: String, required: true},
     role: {type: String, required: true, enum: ['student', 'faculty', 'institute']},
     dob: {type: String, required: true},
+    date_signup: {type: Date, default: Date.now, required: true},
     student: {
         school: String,
         interests: String,
@@ -25,8 +26,9 @@ const userSchema = mongoose.Schema({
         contact: String
     },
     faculty: {
-        education: String,
-        current_institute: String,
+        expertise: {type: String, default: "Not Mentioned"},
+        education: {type: String, required: true},
+        current_institute: {type: String, default: "Not Mentioned"},
         mode_teaching: [String],
         achievements: [{
             details: String,
@@ -37,8 +39,8 @@ const userSchema = mongoose.Schema({
             year: String,
             location: String
         }],
-        location: String,
-        contact: String
+        location: {type: String, default: "Not Mentioned"},
+        contact: {type: String, default: "Not Mentioned"}
     }
 });
 

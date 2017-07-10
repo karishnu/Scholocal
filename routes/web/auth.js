@@ -30,10 +30,6 @@ router.post('/save', function (req, res, next) {
         var acheivement_count = req.body['mode-count'][1];
         var experience_count = req.body['mode-count'][2];
 
-        console.log(teaching_mode_count);
-        console.log(acheivement_count);
-        console.log(experience_count);
-
         var mode_teaching = [];
         var achievements = [];
         var experience = [];
@@ -61,6 +57,10 @@ router.post('/save', function (req, res, next) {
         var facultyObject = req.body;
 
         facultyObject.faculty = {};
+        facultyObject.faculty.education = req.body.degree;
+        facultyObject.faculty.location = req.body.location;
+        facultyObject.faculty.expertise = req.body.expertise;
+        facultyObject.faculty.current_institute = req.body.schoolName;
         facultyObject.faculty.mode_teaching = mode_teaching;
         facultyObject.faculty.achievements = achievements;
         facultyObject.faculty.experience = experience;
