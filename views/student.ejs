@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/materialize.min.css">
+    <link rel="stylesheet" href="css/faculty.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/materialize.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-script.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,400,700" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  </head>
+  <body ng-app="app" ng-contoller="facultyController" ng-init="init()">
+    <div class="navbar-fixed">
+      <ul id="dropdown1" class="dropdown-content">
+        <li><a href="#!">Edit Profile</a></li>
+        <li><a href="#!">Logout</a></li>
+      </ul>
+     <nav>
+       <div class="nav-wrapper row">
+         <a href="#!" class="center brand-logo"><img src="/images/logo.png"></a>
+         <a href="#" data-activates="mobile-demo" class="button-collapse" style="color: black;"><i class="material-icons">menu</i></a>
+
+         <ul class="right brand-logo hide-on-med-and-down">
+           <li><a href="#" id="search-label" class="center" style="font-weight: lighter;color: #002169">Search</a></li>
+           <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><img src="/images/profile.png"><i class="material-icons right">arrow_drop_down</i></a></li>
+         </ul>
+         <ul class="side-nav" id="mobile-demo">
+           <li><a href="#!">Edit Profile</a></li>
+           <li><a href="#!">Logout</a></li>
+        </ul>
+       </div>
+     </nav>
+    </div>
+   <div class="row faculty-profile-large">
+     <div class="col m3 l3 stats hide-on-small-only">
+       <br><br>
+       <img src="/images/profile1.png" style="width: 100%">
+       <h4 class="white-text" style="text-decoration: underline;">Stats</h4>
+       <p class="header">Selected Stream:</p>
+       <p>
+         PCM
+       </p>
+       <p class="header">Present Grade: </p>
+       <p>11th</p>
+       <p class="header">Reviews: </p>
+       <p>32</p>
+       <p class="header">Previous Institutes: </p>
+       <ul>
+         <li>asd</li>
+         <li>asd</li>
+         <li>asd</li>
+       </ul>
+       <p class="header">Current Institute: </p>
+       <p><%= faculty.faculty.current_institute %></p>
+      </div>
+      <div class="col s12 m9 l9 data">
+        <br>
+        <div class="row">
+          <div class="col s10 m8 l8">
+            <h4 class="blue-text">
+              <%= faculty.name_first + " " + faculty.name_last %>
+            </h4>
+            <p class="grey-text"><%= faculty.faculty.education %></p>
+            <p style=""><%= faculty.description %></p>
+            <div class="row">
+              <div class="col m4 l4">
+                <p class="blue-text">Interests</p>
+                <p>asdasd</p>
+              </div>
+              <div class="col m4 l4">
+                <p class="blue-text">Location</p>
+                <p>asd</p>
+              </div>
+              <div class="col m4 l4">
+                <p class="blue-text">Contact</p>
+                <p>adsasd</p>
+              </div>
+            </div>
+            <div class="row hide-on-med-and-up">
+              <!-- <a href="#" class="follow-button"><i class="fa fa-rss"></i>&nbsp&nbspFollow</a><br><br> -->
+              <a href="#" class="follow-button">Download Profile</a>
+            </div>
+            <div class="row stats hide-on-med-and-up">
+              <br><br>
+              <img src="/images/profile1.png" style="width: 100%">
+              <h4 class="white-text" style="text-decoration: underline;">Stats</h4>
+              <p class="header">Selected Stream:</p>
+              <p>
+                PCM
+              </p>
+              <p class="header">Present Grade: </p>
+              <p>11th</p>
+              <p class="header">Reviews: </p>
+              <p>32</p>
+              <p class="header">Previous Institutes: </p>
+              <ul>
+                <li>asd</li>
+                <li>asd</li>
+                <li>asd</li>
+              </ul>
+              <p class="header">Current Institute: </p>
+              <p><%= faculty.faculty.current_institute %></p>
+             </div>
+            <div class="row">
+              <div class="col s12">
+                <ul class="tabs">
+                  <li class="tab col s12 m3 l3"><a class="active" href="#timeline">Timeline</a></li>
+                  <li class="tab col s12 m3 l3"><a href="#reviews">Reviewed</a></li>
+                  <li class="tab col s12 m3 l3"><a href="#achievements" style="font-size: 80%">Achievements</a></li>
+                  <li class="tab col s12 m3 l3"><a href="#experience">Projects</a></li>
+                </ul>
+              </div>
+              <div id="timeline" class="col s12">
+                <div class="post-feed">
+                  <form action="#" method="get">
+                    <textarea name="data" placeholder="Ask A Question" resizable="false"></textarea>
+                    <input type="file" style="display: none;" accept="image/*">
+                    <p><a href="#" onClick="fileTrigger()" style="color: black"><i class="fa fa-paperclip" style="transform: rotate(270deg)"></i>Attach A File</a>
+                      <button type="submit" class="right post-btn">Post</button>
+                    </p>
+                  </form>
+                </div>
+                <div class="feed-single">
+                  <div class="feed-header">
+                    <img src="/images/profile.png">
+                    <a href="#" style="color: white;">Jane Doe</a>
+                  </div>
+                  <div class="feed-time">
+                    <p class="grey-text">2 hrs Ago</p>
+                  </div>
+                  <div class="feed-content">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <img src="/images/carouselimage.png">
+                  </div>
+                  <div class="feed-like">
+                    <a href="#"><i class="fa fa-thumbs-up"></i> Like</a>
+                    <a href="#"><i class="fa fa-comment"></i> Comment</a>
+                    <a href="#"><i class="fa fa-share"></i> Share</a>
+                  </div>
+                </div>
+              </div>
+              <div id="reviews" class="col s12">
+                <br><br>
+                <div class="review row">
+                  <div class="col s3">
+                    <img src="/images/profile.png">
+                  </div>
+                  <div class="col s9 pull-s1" style="">
+                    <p class="review-text">
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </p>
+                    <p class="review-rating">
+                      <b>Rated:  3 <span class="blue-text">&#x2605;</span></b>
+                    </p>
+                    <p class="review-date">
+                      <b>30.01.2013</b>
+                    </p>
+                  </div>
+                </div>
+                <div class="review row">
+                  <div class="col s3">
+                    <img src="/images/profile.png">
+                  </div>
+                  <div class="col s9 pull-s1" style="">
+                    <p class="review-text">
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </p>
+                    <p class="review-rating">
+                      <b>Rated:  3 <span class="blue-text">&#x2605;</span></b>
+                    </p>
+                    <p class="review-date">
+                      <b>30.01.2013</b>
+                    </p>
+                  </div>
+                </div>
+                <div class="review row">
+                  <div class="col s3">
+                    <img src="/images/profile.png">
+                  </div>
+                  <div class="col s9 pull-s1" style="">
+                    <p class="review-text">
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </p>
+                    <p class="review-rating">
+                      <b>Rated:  3 <span class="blue-text">&#x2605;</span></b>
+                    </p>
+                    <p class="review-date">
+                      <b>30.01.2013</b>
+                    </p>
+                  </div>
+                </div>
+                <div class="review row">
+                  <div class="col s3">
+                    <img src="/images/profile.png">
+                  </div>
+                  <div class="col s9 pull-s1" style="">
+                    <p class="review-text">
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </p>
+                    <p class="review-rating">
+                      <b>Rated:  3 <span class="blue-text">&#x2605;</span></b>
+                    </p>
+                    <p class="review-date">
+                      <b>30.01.2013</b>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div id="achievements" class="col s12">
+                <a href="#" class="right" style="font-size: 150%"><i class="fa fa-pencil"></i></a>
+                <ul>
+                    <% faculty.faculty.achievements.forEach(function(experience) { %>
+                  <li>
+                    <div class="experience-field">
+                      <div class="experience-title">
+                        <p><%= experience.details %></p>
+                      </div>
+                      <div class="experience-details">
+                        <p class="experience-duration"><%= experience.year %></p>
+                      </div>
+                    </div>
+                  </li>
+                    <% }); %>
+                </ul>
+              </div>
+              <div id="experience" class="col s12">
+                <br>
+                <a href="#" class="right" style="font-size: 150%"><i class="fa fa-pencil"></i></a>
+                <ul>
+                    <% faculty.faculty.experience.forEach(function(experience) { %>
+                  <li>
+                    <div class="experience-field">
+                      <div class="experience-title">
+                        <p><%= experience.details %></p>
+                      </div>
+                      <div class="experience-details">
+                        <p class="experience-duration"><%= experience.year %></p>
+                        <p class="experience-location"><%= experience.location %></p>
+                      </div>
+                    </div>
+                  </li>
+                    <% }); %>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col m4 l4 hide-on-small-only">
+            <!-- <a href="#" class="follow-button"><i class="fa fa-rss"></i>&nbsp&nbspFollow</a> -->
+            <a href="#" class="follow-button">Download Profile</a>
+          </div>
+        </div>
+      </div>
+     </div>
+   </div>
+  </body>
+  <div id="searchcontainer">
+    <form id="search" action="#" method="post">
+      <input type="text" name="search-terms" id="search-terms" placeholder="Enter search terms...">
+      <div>Press Enter to Search</div>
+    </form>
+  </div>
+</html>
+<script>
+  $(document).ready(function(){
+    $('.tabs').tabs();
+    $('.stats').height($('.data').height());
+    $(".button-collapse").sideNav();
+  })
+  function fileTrigger(){
+    $('input[type=file]').click();
+  }
+  var ismobile = navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i) != null
+  var touchorclick = (ismobile)? 'touchstart' : 'click'
+  var searchcontainer = document.getElementById('searchcontainer')
+  var searchfield = document.getElementById('search-terms')
+  var searchlabel = document.getElementById('search-label')
+
+  searchlabel.addEventListener(touchorclick, function(e){ // when user clicks on search label
+  	searchcontainer.classList.toggle('opensearch') // add or remove 'opensearch' to searchcontainer
+  	if (!searchcontainer.classList.contains('opensearch')){ // if hiding searchcontainer
+  		searchfield.blur() // blur search field
+  		e.preventDefault() // prevent default label behavior of focusing on search field again
+  	}
+  	e.stopPropagation() // stop event from bubbling upwards
+  }, false)
+
+  searchfield.addEventListener(touchorclick, function(e){ // when user clicks on search field
+  	e.stopPropagation() // stop event from bubbling upwards
+  }, false)
+
+  document.addEventListener(touchorclick, function(e){ // when user clicks anywhere in document
+  	searchcontainer.classList.remove('opensearch')
+  	searchfield.blur()
+  }, false)
+</script>
