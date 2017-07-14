@@ -13,28 +13,29 @@
      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
   <body ng-app="app" ng-contoller="facultyController" ng-init="init()">
+    <div class="navbar-fixed">
+      <ul id="dropdown1" class="dropdown-content">
+        <li><a href="#!">Edit Profile</a></li>
+        <li><a href="#!">Logout</a></li>
+      </ul>
+     <nav>
+       <div class="nav-wrapper row">
+         <a href="#!" class="center brand-logo"><img src="/images/logo.png"></a>
+         <a href="#" data-activates="mobile-demo" class="button-collapse" style="color: black;"><i class="material-icons">menu</i></a>
 
-   <div class="row faculty-profile-large hide-on-small-only">
-     <div class="navbar-fixed">
-       <ul id="dropdown1" class="dropdown-content">
-         <li><a href="#!">Edit Profile</a></li>
-         <li><a href="#!">Logout</a></li>
-       </ul>
-      <nav>
-        <div class="nav-wrapper row">
-          <a href="#!" class="left brand-logo"><img src="/images/logo.png"></a>
-          <span class="hide-on-med-and-up"><br></span>
-          <form action="#" method="get" class="col s11 m10 l10 push-s1 push-m1 push-l1">
-            <input type="text" class="custom-input" placeholder="Search">
-          </form>
-          <span class="hide-on-med-and-up"><br></span>
-          <ul class="right brand-logo">
-            <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><img src="/images/profile.png"><i class="material-icons right">arrow_drop_down</i></a></li>
-          </ul>
-        </div>
-      </nav>
+         <ul class="right brand-logo hide-on-med-and-down">
+           <li><a href="#" id="search-label" class="center" style="font-weight: lighter;color: #002169">Search</a></li>
+           <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><img src="/images/profile.png"><i class="material-icons right">arrow_drop_down</i></a></li>
+         </ul>
+         <ul class="side-nav" id="mobile-demo">
+           <li><a href="#!">Edit Profile</a></li>
+           <li><a href="#!">Logout</a></li>
+        </ul>
+       </div>
+     </nav>
     </div>
-     <div class="col m3 l3 stats">
+   <div class="row faculty-profile-large">
+     <div class="col m3 l3 stats hide-on-small-only">
        <br><br>
        <img src="/images/profile1.png" style="width: 100%">
        <h4 class="white-text" style="text-decoration: underline;">Stats</h4>
@@ -61,10 +62,10 @@
        <p class="header">Current Institute: </p>
        <p><%= faculty.faculty.current_institute %></p>
       </div>
-      <div class="col m9 l9 data">
+      <div class="col s12 m9 l9 data">
         <br>
         <div class="row">
-          <div class="col m8 l8">
+          <div class="col s10 m8 l8">
             <h4 class="blue-text">
               <%= faculty.name_first + " " + faculty.name_last %>
             </h4>
@@ -84,13 +85,44 @@
                 <p><%= faculty.faculty.contact %></p>
               </div>
             </div>
+            <div class="row hide-on-med-and-up">
+              <a href="#" class="follow-button"><i class="fa fa-rss"></i>&nbsp&nbspFollow</a><br><br>
+              <a href="#" class="follow-button">Download Profile</a>
+            </div>
+            <div class="row stats hide-on-med-and-up">
+              <br><br>
+              <img src="/images/profile1.png" style="width: 100%">
+              <h4 class="white-text" style="text-decoration: underline;">Stats</h4>
+              <p class="header">Rating:</p>
+              <p>
+                <span class="rating-text">3/5</span>
+                <span class="rating">
+                 <span class="filled">☆</span>
+                 <span class="filled">☆</span>
+                 <span class="filled">☆</span>
+                 <span>☆</span>
+                 <span>☆</span>
+              </p>
+              <p class="header">Experience: </p>
+              <p>10 years</p>
+              <p class="header">Success Ratio: </p>
+              <p>88.2%</p>
+              <p class="header">Mode Of Teaching: </p>
+              <ul>
+                  <% faculty.faculty.mode_teaching.forEach(function(mode) { %>
+                <li><p><%= mode %></p></li>
+                  <% }); %>
+              </ul>
+              <p class="header">Current Institute: </p>
+              <p><%= faculty.faculty.current_institute %></p>
+             </div>
             <div class="row">
               <div class="col s12">
                 <ul class="tabs">
-                  <li class="tab col s3"><a class="active" href="#timeline">Timeline</a></li>
-                  <li class="tab col s3"><a href="#reviews">Reviews</a></li>
-                  <li class="tab col s3"><a href="#achievements" style="font-size: 80%">Achievements</a></li>
-                  <li class="tab col s3"><a href="#experience">Experience</a></li>
+                  <li class="tab col s12 m3 l3"><a class="active" href="#timeline">Timeline</a></li>
+                  <li class="tab col s12 m3 l3"><a href="#reviews">Reviews</a></li>
+                  <li class="tab col s12 m3 l3"><a href="#achievements" style="font-size: 80%">Achievements</a></li>
+                  <li class="tab col s12 m3 l3"><a href="#experience">Experience</a></li>
                 </ul>
               </div>
               <div id="timeline" class="col s12">
@@ -227,7 +259,7 @@
               </div>
             </div>
           </div>
-          <div class="col m4 l4">
+          <div class="col m4 l4 hide-on-small-only">
             <a href="#" class="follow-button"><i class="fa fa-rss"></i>&nbsp&nbspFollow</a>
             <a href="#" class="follow-button">Download Profile</a>
           </div>
@@ -236,13 +268,43 @@
      </div>
    </div>
   </body>
+  <div id="searchcontainer">
+    <form id="search" action="#" method="post">
+      <input type="text" name="search-terms" id="search-terms" placeholder="Enter search terms...">
+      <div>Press Enter to Search</div>
+    </form>
+  </div>
 </html>
 <script>
   $(document).ready(function(){
     $('.tabs').tabs();
     $('.stats').height($('.data').height());
+    $(".button-collapse").sideNav();
   })
   function fileTrigger(){
     $('input[type=file]').click();
   }
+  var ismobile = navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i) != null
+  var touchorclick = (ismobile)? 'touchstart' : 'click'
+  var searchcontainer = document.getElementById('searchcontainer')
+  var searchfield = document.getElementById('search-terms')
+  var searchlabel = document.getElementById('search-label')
+
+  searchlabel.addEventListener(touchorclick, function(e){ // when user clicks on search label
+  	searchcontainer.classList.toggle('opensearch') // add or remove 'opensearch' to searchcontainer
+  	if (!searchcontainer.classList.contains('opensearch')){ // if hiding searchcontainer
+  		searchfield.blur() // blur search field
+  		e.preventDefault() // prevent default label behavior of focusing on search field again
+  	}
+  	e.stopPropagation() // stop event from bubbling upwards
+  }, false)
+
+  searchfield.addEventListener(touchorclick, function(e){ // when user clicks on search field
+  	e.stopPropagation() // stop event from bubbling upwards
+  }, false)
+
+  document.addEventListener(touchorclick, function(e){ // when user clicks anywhere in document
+  	searchcontainer.classList.remove('opensearch')
+  	searchfield.blur()
+  }, false)
 </script>
