@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/signup.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-script.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/signup2.js"></script>
+    <title>Sign Up</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,400,700" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  </head>
+  <body ng-app="app" ng-controller="registerController">
+    <div class="container">
+      <div class="row" style="padding-bottom: -10px;border-bottom: 1px solid #34536f;">
+        <h1 style="color: #34536f;border-bottom: 5px solid #002163;width: 20%;position: relative;top: 13px;">Signup Form</h1>
+      </div>
+      <br><br>
+      <div class="stepwizard col-md-offset-3">
+          <div class="stepwizard-row setup-panel">
+            <div class="stepwizard-step">
+              <a href="#step-1" id="one" type="button" class="btn btn-primary btn-circle">1</a>
+              <p>Personal Details <i class="fa fa-chevron-right"></i></p>
+            </div>
+            <div class="stepwizard-step">
+              <a href="#step-2" id="two" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
+              <p>Educational Details <i class="fa fa-chevron-right"></i></p>
+            </div>
+            <div class="stepwizard-step">
+              <a href="#step-3" id="three" type="button" class="btn btn-default btn-circle" disabled="disabled">3</a>
+              <p>Add a Picture</p>
+            </div>
+          </div>
+        </div>
+        <form role="form" action="/web/auth/save" method="post">
+          <div class="row setup-content" id="step-1">
+            <div class="col-xs-12 col-md-6 col-md-offset-3">
+              <div class="col-md-12">
+                <br><br><br>
+                <div class="form-group row">
+                  <div class="col-xs-12 col-md-3">
+                    <label for="exampleInputEmail1">Email address</label>
+                  </div>
+                  <div class="col-xs-12 col-md-9">
+                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email" name="email">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-xs-12 col-md-3">
+                    <label for="password">Password</label>
+                  </div>
+                  <div class="col-xs-12 col-md-9">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Enter Password here">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-xs-12 col-md-3">
+                    <label for="firstName">First Name</label>
+                  </div>
+                  <div class="col-xs-12 col-md-9">
+                    <input type="text" class="form-control" id="name_first" name="name_first" placeholder="Enter First name here">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-xs-12 col-md-3">
+                    <label for="lastName">Last Name</label>
+                  </div>
+                  <div class="col-xs-12 col-md-9">
+                    <input type="text" class="form-control" id="name_second" placeholder="Enter Last Name here" name="name_last">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-xs-12 col-md-3">
+                    <label for="dateOfBirth">Date Of Birth</label>
+                  </div>
+                  <div class="col-xs-12 col-md-9">
+                    <input type="date" name="dateOfBirth" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-xs-12 col-md-3">
+                    <label for="mobile">Mobile Number</label>
+                  </div>
+                  <div class="col-xs-12 col-md-9">
+                    <input type="text" name="mobile" id="mobile" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-xs-12 col-md-3">
+                    <label for="address">Present Address</label>
+                  </div>
+                  <div class="col-xs-12 col-md-9">
+                    <textarea name="address" id="addres" class="form-control"></textarea>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-xs-12 col-md-3">
+                    <label for="description">Description</label>
+                  </div>
+                  <div class="col-xs-12 col-md-9">
+                    <textarea name="description" id="description" class="form-control"></textarea>
+                  </div>
+                </div>
+                <br>
+                <center><button class="btn btn-primary nextBtn btn-lg" type="button" >Next</button></center>
+                <br>
+              </div>
+            </div>
+          </div>
+          <div class="row setup-content" id="step-2">
+            <div class="col-xs-12 col-md-6 col-md-offset-3">
+              <div class="col-md-12">
+                <br><br><br>
+                <div class="form-group row">
+                  <div class="col-xs-12 col-md-3">
+                    <label for="schoolname">Current Institute Name</label>
+                  </div>
+                  <div class="col-xs-12 col-md-9">
+                    <input type="text" class="form-control" id="schoolname" name="schoolName" placeholder="School Name">
+                  </div>
+                </div>
+                <div class="form-group row achievement">
+                  <div class="col-xs-12 col-md-3">
+                    <label for="achievement1">Achievement</label>
+                  </div>
+                  <div class="col-xs-12 col-md-9">
+                    <input type="text" class="form-control" id="achievement1" name="acheivement1" placeholder="Achievement">
+                    <br>
+                    <input type="text" class="form-control" name="acheivement-year1" placeholder="Year">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="right" style="float: right">
+                    <a href="#" class="right" onClick="addMore('achievement')">Add More</a>
+                  </div>
+                </div>
+                <div class="form-group row project">
+                  <div class="col-xs-12 col-md-3">
+                    <label for="project1">Project</label>
+                  </div>
+                  <div class="col-xs-12 col-md-9">
+                    <input type="text" class="form-control" name="project1" placeholder="Project Details">
+                    <br>
+                    <input type="text" class="form-control" name="project-year1" placeholder="Year">
+                    <br>
+                    <input type="text" class="form-control" name="project-location1" placeholder="Location">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="right" style="float: right">
+                    <a href="#" class="right" onClick="addMore('project')">Add More</a>
+                  </div>
+                </div>
+              </div>
+              <center>
+                <br><br>
+                <button class="btn btn-primary backBtn btn-lg pull-left" type="button" onclick="change('1')">Go Back</button>
+                <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
+              </center>
+            </div>
+          </div>
+          <div class="row setup-content" id="step-3">
+            <div class="col-xs-12 col-md-6 col-md-offset-3">
+              <div class="col-md-12">
+                <center>
+                  <br><br><br>
+                  <img id="blah" src="images/photo.png" style="width: 50%;">
+                  <p style="color: #34536f;text-decoration: none;font-weight: bold;">Select A Profile Picture</p>
+                  <button class="btn btn-primary btn-lg fileBtn" id="file-trigger" type="button" style="width: 40%">Upload A Picture</button>
+                  <input type="file" style="display: none;" id="file" onchange="readURL(this);">
+                </center>
+                <center>
+                  <br><br>
+                  <button class="btn btn-primary backBtn btn-lg pull-left" onclick="change('1')">Go Back</button>
+                  <button class="btn btn-primary backBtn btn-lg pull-right" type="submit" name="submit">Submit</button>
+                </center>
+              </div>
+            </div>
+          </div>
+          <input type="hidden" id="mode-count" name="mode-count" value="1">
+          <input type="hidden" id="achievement-count" name="mode-count" value="1">
+          <input type="hidden" id="project-count" name="mode-count" value="1">
+          <input type="hidden" id="role" name="role" value="<%= role %>">
+        </form>
+      </div>
+  </body>
+</html>
+<script>
+$('#file-trigger').click(function(){
+  $('#file').click();
+})
+  function change(changeTo){
+    if(changeTo == '1'){
+      $('#one').click();
+    } else if(changeTo == '2'){
+      $('#two').click();
+    }
+  }
+  function readURL(input) {
+       if (input.files && input.files[0]) {
+           var reader = new FileReader();
+
+           reader.onload = function (e) {
+               $('#blah')
+                   .attr('src', e.target.result);
+           };
+
+           reader.readAsDataURL(input.files[0]);
+       }
+   }
+</script>

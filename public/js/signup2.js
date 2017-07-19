@@ -65,5 +65,20 @@ function addMore(addType){
       </div>\
     </div>').insertAfter($('.experience').last());
         $('#experience-count').val(len);
+    } else if(addType == 'project'){
+        var len = $('.project').length + 1;
+        $('<div class="form-group row project">\
+    <div class="col-xs-12 col-md-3">\
+        <label for="project'+len+'">Project</label>\
+      </div>\
+      <div class="col-xs-12 col-md-9">\
+        <input type="text" class="form-control" name="project'+len+'" placeholder="Project Details">\
+        <br>\
+        <input type="text" class="form-control" name="project-year'+len+'" placeholder="Year">\
+        <br>\
+        <input type="text" class="form-control" name="project-location'+len+'" placeholder="Location">\
+      </div>\
+    </div>').insertAfter($('.project').last());
+        $('#project-count').val(len);
     }
 }
