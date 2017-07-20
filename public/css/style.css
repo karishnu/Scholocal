@@ -11,7 +11,7 @@
     color: white!important;
     font-size: 120%!important;
   }
-  #mycarousel{
+  /*#mycarousel{
     position: relative;
     top: -75px;
     z-index: -1;
@@ -34,7 +34,7 @@
     -webkit-transform-style: preserve-3d;
     -moz-transform-style: preserve-3d;
     transform-style: preserve-3d;
-  }
+  }*/
   .full-screen {
     background-size: cover;
     background-position: center;
@@ -110,39 +110,6 @@ h1{
   color: #a7b5c0;
 }
 
-@media only screen and (min-device-width: 300px) and (max-device-width: 600px){
-  .navbar{
-    background: black!important;
-  }
-  .btn-custom{
-    padding: 1%;
-    border: 1px solid white;
-    margin-left: -10px;
-    width: 45%;
-    margin-bottom: 10px;
-    border-radius: 3px;
-  }
-  .carousel-caption p{
-    font-size: 250%;
-    font-weight: 200;
-  }
-  .carousel-caption h3{
-    font-size: 300%;
-    font-weight: 700;
-  }
-  .know-more{
-    top: -160px;
-  }
-  .tab-pane .row .col-md-3{
-    text-align: center;
-  }
-  #one,#two,#three{
-    margin-left: 25px;
-  }
-}
-
-
-
 #custom-search-input {
         margin:0;
         margin-top: 15px;
@@ -215,4 +182,190 @@ h1{
 }
 *:focus{
   outline: none;
+}
+header {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  top: 0;
+  left: 0;
+  justify-content: space-between;
+  align-items: center;
+  /* center flex items vertically */
+  background: white;
+  padding: 10px 5px;
+  font: bold 16px 'Bitter', sans-serif;
+  /* use google font */
+}
+
+header,
+header *,
+form#search,
+form#search * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+header ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-left: auto;
+  /* right align this flex child */
+  margin-right: 10px;
+}
+
+header ul li {
+  display: inline;
+}
+
+header ul li a {
+  text-decoration: none;
+  padding: 5px;
+}
+
+header #search-label {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* center flex items vertically */
+  width: 60px;
+  height: 40px;
+  z-index: 100;
+}
+
+div#searchcontainer {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  display: block;
+  background: rgba(0,0,0,0.95);
+  left: -100%;
+  /* initially position search container out of view */
+  top: 90px;
+  /* shift container downwards so the header is still visible when search is shown */
+  padding-top: 50px;
+  opacity: 0;
+  text-align: center;
+  font: bold 16px 'Bitter', sans-serif;
+  /* use google font */
+  -webkit-transform: scale(.9) translate3d(-0, -50px, 0);
+  transform: scale(.9) translate3d(-0, -50px, 0);
+  -webkit-transition: -webkit-transform .5s, opacity .5s, left 0s .5s;
+  transition: transform .5s, opacity .5s, left 0s .5s;
+}
+
+div#searchcontainer div {
+  padding: 5px;
+  color: white;
+}
+
+div#searchcontainer form {
+  opacity: 0;
+  -webkit-transform: translate3d(0, 50px, 0);
+  transform: translate3d(0, 50px, 0);
+  -webkit-transition: all .5s 0s;
+  transition: all .5s 0s;
+}
+
+div#searchcontainer form input[type="text"] {
+  width: 90%;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  padding: 10px;
+  border: none;
+  border-bottom: 2px solid gray;
+  outline: none;
+  font-size: 3em;
+  background: #eee;
+}
+
+div#searchcontainer.opensearch {
+  left: 0;
+  opacity: 1;
+  -webkit-transform: scale(1) translate3d(0, 0, 0);
+  transform: scale(1) translate3d(0, 0, 0);
+  -webkit-transition: -webkit-transform .5s, opacity .5s, left 0s 0s;
+  transition: transform .5s, opacity .5s, left 0s 0s;
+}
+
+div#searchcontainer.opensearch form {
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  transition: all .5s .5s;
+  transition: all .5s .5s;
+}
+body{
+  background: url('../images/carouselimage.png');
+  background-size: cover;
+  overflow-x: hidden;
+}
+.signup-form-container{
+
+  margin-top: -75px;
+  width: 100%;
+  z-index: -1;
+}
+.signup-form-container form{
+  color: white;
+}
+.signup-form-container button{
+    background: #34536f;
+    border-radius: 0px;
+    width: 15%;
+    color: white;
+    border: 0;
+    margin-left: 7%;
+}
+.footer{
+  margin-top: -75px;
+}
+@media only screen and (min-device-width: 300px) and (max-device-width: 600px){
+  .navbar{
+    background: black!important;
+  }
+  div#searchcontainer form input[type="text"] {
+    width: 95%;
+  }
+  .signup-form-container button{
+      background: #34536f;
+      border-radius: 0px;
+      width: 35%;
+      color: white;
+      border: 0;
+      margin-left: 7%;
+  }
+  .btn-custom{
+    padding: 1%;
+    border: 1px solid white;
+    margin-left: -10px;
+    width: 45%;
+    margin-bottom: 10px;
+    border-radius: 3px;
+  }
+  .carousel-caption p{
+    font-size: 250%;
+    font-weight: 200;
+  }
+  .carousel-caption h3{
+    font-size: 300%;
+    font-weight: 700;
+  }
+  .know-more{
+    top: -160px;
+  }
+  .tab-pane .row .col-md-3{
+    text-align: center;
+  }
+  #one,#two,#three{
+    margin-left: 25px;
+  }
+  .signup-form-container h1{
+    width: 100%!important;
+  }
 }
