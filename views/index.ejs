@@ -43,19 +43,19 @@
         <h1 style="color: white;width: 30%;font-weight: 400">Find the best tutors and institutes near you.</h1>
         <center>
           <div class="row">
-            <form method="post" action="/web/auth/save">
+            <form method="post" action="../web/auth/save">
               <div class="form-group">
                 <div class="col-md-12 col-xs-10 col-xs-push-1 columns">
                     <label class="radio-inline" for="faculty">
-                      <input type="radio" name="registerType" id="faculty" value="faculty">
+                      <input type="radio" name="role" id="faculty" value="faculty">
                       Faculty&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     </label>
                     <label class="radio-inline" for="student">
-                      <input type="radio" name="registerType" id="student" value="student">
+                      <input type="radio" name="role" id="student" value="student">
                       Student&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     </label>
                     <label class="radio-inline" for="institute">
-                      <input type="radio" name="registerType" id="institute" value="institute">
+                      <input type="radio" name="role" id="institute" value="institute">
                       Institute&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     </label>
                 </div>
@@ -81,7 +81,7 @@
                   <input type="text" class="form-control" id="name_second" placeholder="Enter Last Name here" name="name_last">
                 </div>
               </div>
-              <center><button class="btn btn-primary nextBtn btn-lg" type="button" >Register</button></center>
+              <center><button class="btn btn-primary nextBtn btn-lg" type="submit" >Register</button></center>
             </form>
           </div>
         </center>

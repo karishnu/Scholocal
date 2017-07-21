@@ -16,7 +16,7 @@ function authenticate_web(req, res) {
 
                 // return the information including token as JSON
                 res.cookie("x-access-token", token);
-                res.redirect('../faculty');
+                res.redirect('../profile');
             }
         })
     }

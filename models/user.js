@@ -7,11 +7,11 @@ const userSchema = mongoose.Schema({
     password: {type: String, required: true},
     name_first: {type: String, required: true},
     name_last: {type: String, required: true},
-    mobile: {type: String, required: true},
-    address: {type: String, required: true},
-    description: {type: String, required: true},
+    mobile: {type: String},
+    address: {type: String},
+    description: {type: String},
     role: {type: String, required: true, enum: ['student', 'faculty', 'institute']},
-    dob: {type: String, required: true},
+    dob: {type: String},
     date_signup: {type: Date, default: Date.now, required: true},
     student: {
         school: String,
@@ -27,7 +27,7 @@ const userSchema = mongoose.Schema({
     },
     faculty: {
         expertise: {type: String, default: "Not Mentioned"},
-        education: {type: String, required: true},
+        education: {type: String, default: "Not Mentioned"},
         current_institute: {type: String, default: "Not Mentioned"},
         mode_teaching: [String],
         achievements: [{
