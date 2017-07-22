@@ -3,6 +3,7 @@ const cookieParser = require("cookie-parser");
 
 const auth = require("./auth");
 const faculty = require("./faculty");
+const student = require("./student");
 const profile = require("./profile");
 
 router.get('/', (req, res) => {
@@ -13,5 +14,6 @@ router.get('/', (req, res) => {
 router.use('/auth', auth);
 router.use('/faculty', faculty);
 router.use('/profile', profile);
+router.use('/student', student);
 
 module.exports = router;

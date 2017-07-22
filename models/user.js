@@ -18,7 +18,15 @@ const userSchema = mongoose.Schema({
         interests: String,
         location: String,
         contact: String,
-        achievements: String
+        achievements: [{
+            details: String,
+            year: String
+        }],
+        experience: [{
+            details: String,
+            year: String,
+            location: String
+        }],
     },
     institute: {
         expertise: String,

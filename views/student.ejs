@@ -34,7 +34,7 @@
        </div>
      </nav>
     </div>
-   <div class="row faculty-profile-large">
+   <div class="row student-profile-large">
      <div class="col m3 l3 stats hide-on-small-only">
        <br><br>
        <img src="/images/profile1.png" style="width: 100%">
@@ -54,17 +54,17 @@
          <li>asd</li>
        </ul>
        <p class="header">Current Institute: </p>
-       <p><%= faculty.faculty.current_institute %></p>
+       <p><%= profile.student.current_institute %></p>
       </div>
       <div class="col s12 m9 l9 data">
         <br>
         <div class="row">
           <div class="col s10 m8 l8">
             <h4 class="blue-text">
-              <%= faculty.name_first + " " + faculty.name_last %>
+              <%= profile.name_first + " " + profile.name_last %>
             </h4>
-            <p class="grey-text"><%= faculty.faculty.education %></p>
-            <p style=""><%= faculty.description %></p>
+            <p class="grey-text"><%= profile.student.education %></p>
+            <p style=""><%= profile.description %></p>
             <div class="row">
               <div class="col m4 l4">
                 <p class="blue-text">Interests</p>
@@ -102,7 +102,7 @@
                 <li>asd</li>
               </ul>
               <p class="header">Current Institute: </p>
-              <p><%= faculty.faculty.current_institute %></p>
+              <p><%= profile.student.current_institute %></p>
              </div>
             <div class="row">
               <div class="col s12">
@@ -212,7 +212,7 @@
               <div id="achievements" class="col s12">
                 <a href="#" class="right" style="font-size: 150%"><i class="fa fa-pencil"></i></a>
                 <ul>
-                    <% faculty.faculty.achievements.forEach(function(experience) { %>
+                    <% profile.student.achievements.forEach(function(experience) { %>
                   <li>
                     <div class="experience-field">
                       <div class="experience-title">
@@ -230,7 +230,7 @@
                 <br>
                 <a href="#" class="right" style="font-size: 150%"><i class="fa fa-pencil"></i></a>
                 <ul>
-                    <% faculty.faculty.experience.forEach(function(experience) { %>
+                    <% profile.student.experience.forEach(function(experience) { %>
                   <li>
                     <div class="experience-field">
                       <div class="experience-title">
