@@ -226,19 +226,19 @@
                     <% }); %>
                 </ul>
               </div>
-              <div id="experience" class="col s12">
+              <div id="projects" class="col s12">
                 <br>
                 <a href="#" class="right" style="font-size: 150%"><i class="fa fa-pencil"></i></a>
                 <ul>
-                    <% profile.student.experience.forEach(function(experience) { %>
+                    <% profile.student.projects.forEach(function(project) { %>
                   <li>
                     <div class="experience-field">
                       <div class="experience-title">
-                        <p><%= experience.details %></p>
+                        <p><%= project.details %></p>
                       </div>
                       <div class="experience-details">
-                        <p class="experience-duration"><%= experience.year %></p>
-                        <p class="experience-location"><%= experience.location %></p>
+                        <p class="experience-duration"><%= project.year %></p>
+                        <p class="experience-location"><%= project.location %></p>
                       </div>
                     </div>
                   </li>

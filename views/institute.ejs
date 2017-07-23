@@ -57,34 +57,32 @@
        <p>88.2%</p>
        <p class="header">Mode Of Teaching: </p>
        <ul>
-           <% faculty.faculty.mode_teaching.forEach(function(mode) { %>
+           <% profile.institute.mode_teaching.forEach(function(mode) { %>
          <li><p><%= mode %></p></li>
            <% }); %>
        </ul>
-       <p class="header">Current Institute: </p>
-       <p><%= faculty.faculty.current_institute %></p>
       </div>
       <div class="col s12 m9 l9 data">
         <br>
         <div class="row">
           <div class="col s10 m8 l8">
             <h4 class="blue-text">
-              <%= faculty.name_first + " " + faculty.name_last %>
+              <%= profile.name_first + " " + profile.name_last %>
             </h4>
-            <p class="grey-text"><%= faculty.faculty.education %></p>
-            <p style=""><%= faculty.description %></p>
+            <p class="grey-text"><%= profile.institute.education %></p>
+            <p style=""><%= profile.description %></p>
             <div class="row">
               <div class="col m4 l4">
                 <p class="blue-text">Expertise</p>
-                <p><%= faculty.faculty.expertise %></p>
+                <p><%= profile.institute.expertise %></p>
               </div>
               <div class="col m4 l4">
                 <p class="blue-text">Location</p>
-                <p><%= faculty.faculty.location %></p>
+                <p><%= profile.institute.location %></p>
               </div>
               <div class="col m4 l4">
                 <p class="blue-text">Contact</p>
-                <p><%= faculty.faculty.contact %></p>
+                <p><%= profile.institute.contact %></p>
               </div>
             </div>
             <div class="row hide-on-med-and-up">
@@ -111,12 +109,10 @@
               <p>88.2%</p>
               <p class="header">Mode Of Teaching: </p>
               <ul>
-                  <% faculty.faculty.mode_teaching.forEach(function(mode) { %>
+                  <% profile.institute.mode_teaching.forEach(function(mode) { %>
                 <li><p><%= mode %></p></li>
                   <% }); %>
               </ul>
-              <p class="header">Current Institute: </p>
-              <p><%= faculty.faculty.current_institute %></p>
              </div>
             <div class="row">
               <div class="col s12">

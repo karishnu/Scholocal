@@ -5,6 +5,7 @@ const auth = require("./auth");
 const faculty = require("./faculty");
 const student = require("./student");
 const profile = require("./profile");
+const institute = require("./institute");
 
 router.get('/', (req, res) => {
     res.status(200).json({ message: 'Connected web!' });
@@ -15,5 +16,6 @@ router.use('/auth', auth);
 router.use('/faculty', faculty);
 router.use('/profile', profile);
 router.use('/student', student);
+router.use('/institute', institute);
 
 module.exports = router;

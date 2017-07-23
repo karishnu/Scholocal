@@ -22,16 +22,20 @@ const userSchema = mongoose.Schema({
             details: String,
             year: String
         }],
-        experience: [{
+        projects: [{
             details: String,
-            year: String,
-            location: String
+            year: String
         }],
     },
     institute: {
-        expertise: String,
-        location: String,
-        contact: String
+        expertise: {type: String, default: "Not Mentioned"},
+        location: {type: String, default: "Not Mentioned"},
+        contact: {type: String, default: "Not Mentioned"},
+        mode_teaching: [String],
+        achievements: [{
+            details: String,
+            year: String
+        }]
     },
     faculty: {
         expertise: {type: String, default: "Not Mentioned"},

@@ -10,7 +10,6 @@ router.use(function (req, res, next) {
 });
 
 router.get('/', function (req, res, next) {
-
     var role = req.decoded._doc.role;
     res.redirect("./"+role);
 });
