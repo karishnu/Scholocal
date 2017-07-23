@@ -2,8 +2,8 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 
-const database = require('../../database/faculty');
-const authenticate = require('../../authenticate');
+const database = require('../../../database/faculty');
+const authenticate = require('../../../authenticate');
 const unirest = require('unirest');
 
 router.use(express.static(path.join(__dirname, '../../public')));
@@ -33,6 +33,14 @@ router.get('/all', function (req, res, next) {
     database.getFaculties(req.query, function (err, result) {
        res.json({
            result: result
+       });
+    });
+});
+
+router.post('/review', function (req, res, next) {
+    database.postFacultyReview(req.decoded._doc._id, req.query.id, req.query.review, req.query.rating, function (err, review) {
+       res.json({
+           result: review
        });
     });
 });
