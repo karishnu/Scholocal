@@ -1,11 +1,16 @@
 const router = require("express")();
 const cookieParser = require("cookie-parser");
+const express = require('express');
+const path = require('path');
+
 
 const auth = require("./auth");
 const faculty = require("./faculty");
-const student = require("./student");
+const student = require("./student/student");
 const profile = require("./profile");
 const institute = require("./institute");
+
+router.use(express.static(path.join(__dirname, '../../public')));
 
 router.get('/', (req, res) => {
     res.status(200).json({ message: 'Connected web!' });
