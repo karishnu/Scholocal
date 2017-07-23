@@ -3,6 +3,7 @@ const router = express.Router();
 const path = require('path');
 
 const database = require('../../../database/student');
+const dbuser = require('../../../database/user');
 const authenticate = require('../../../authenticate');
 const student_edit = require("./student_edit");
 const unirest = require('unirest');
@@ -37,5 +38,14 @@ router.get('/all', function (req, res, next) {
        });
     });
 });
+
+router.post('/review', function (req, res, next) {
+    dbuser.postReview(req.decoded._doc._id, req.query.id, req.query.review, req.query.rating, "student", function (err, review) {
+        res.json({
+            result: review
+        });
+    });
+});
+
 
 module.exports = router;

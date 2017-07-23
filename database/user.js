@@ -14,4 +14,18 @@ function updateUserDetails(userName, userDetails, callback) {
     });
 }
 
-module.exports = {saveUserNew: saveUserNew, updateUserDetails: updateUserDetails};
+function postReview(id, by, review, rating, role, callback) {
+    const review = new Review({
+        user: id,
+        posted_by: by,
+        review: review,
+        rating: rating,
+        role: role
+    });
+
+    review.save(function (err, object) {
+        callback(err, object);
+    });
+}
+
+module.exports = {saveUserNew: saveUserNew, updateUserDetails: updateUserDetails, postReview: postReview};

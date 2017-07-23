@@ -14,18 +14,5 @@ function getFaculties(query, callback) {
     });
 }
 
-function postFacultyReview(id, by, review, rating, callback) {
-    const review = new Review({
-        user: id,
-        posted_by: by,
-        review: review,
-        rating: rating
-    });
-
-    review.save(function (err, object) {
-       callback(err, object);
-    });
-}
-
 module.exports = {getFacultyProfile: getFacultyProfile,
-    getFaculties: getFaculties, postFacultyReview: postFacultyReview};
+    getFaculties: getFaculties};
