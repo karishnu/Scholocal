@@ -1,4 +1,5 @@
 const User = require("../models/user").User;
+var Review = require('../models/review').Review;
 
 function saveUserNew(query, callback) {
     const user = new User(query);

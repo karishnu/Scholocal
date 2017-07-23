@@ -5,6 +5,7 @@ const path = require('path');
 const database = require('../../database/institute');
 const authenticate = require('../../authenticate');
 const unirest = require('unirest');
+const dbuser = require('../../database/user');
 
 router.use(express.static(path.join(__dirname, '../../public')));
 
@@ -34,6 +35,14 @@ router.get('/all', function (req, res, next) {
        res.json({
            result: result
        });
+    });
+});
+
+router.post('/review', function (req, res, next) {
+    dbuser.postReview(req.decoded._doc._id, req.query.id, req.query.review, req.query.rating, "institute", function (err, review) {
+        res.json({
+            result: review
+        });
     });
 });
 
