@@ -16,7 +16,7 @@ function updateUserDetails(userName, userDetails, callback) {
 }
 
 function postReview(id, by, review, rating, role, callback) {
-    const review = new Review({
+    const reviewObject = new Review({
         user: id,
         posted_by: by,
         review: review,
@@ -24,7 +24,7 @@ function postReview(id, by, review, rating, role, callback) {
         role: role
     });
 
-    review.save(function (err, object) {
+    reviewObject.save(function (err, object) {
         callback(err, object);
     });
 }
