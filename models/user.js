@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt-nodejs');
+const Schema = mongoose.Schema;
 
 // define the schema for our user model
 const userSchema = mongoose.Schema({
@@ -13,6 +14,7 @@ const userSchema = mongoose.Schema({
     role: {type: String, required: true, enum: ['student', 'faculty', 'institute']},
     dob: {type: String},
     date_signup: {type: Date, default: Date.now, required: true},
+    following: [{ type: Schema.Types.ObjectId, ref: 'User' }],
     student: {
         school: String,
         interests: String,

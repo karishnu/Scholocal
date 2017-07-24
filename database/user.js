@@ -29,4 +29,10 @@ function postReview(id, by, review, rating, role, callback) {
     });
 }
 
-module.exports = {saveUserNew: saveUserNew, updateUserDetails: updateUserDetails, postReview: postReview};
+function getReviews(id, role, callback) {
+    Review.find({user: id, role: role}, function (err, res) {
+        callback(err, res)
+    });
+}
+
+module.exports = {saveUserNew: saveUserNew, updateUserDetails: updateUserDetails, postReview: postReview, getReviews: getReviews};

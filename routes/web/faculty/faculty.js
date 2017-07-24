@@ -46,4 +46,12 @@ router.post('/review', function (req, res, next) {
     });
 });
 
+router.get('/review', function (req, res, next) {
+   dbuser.getReviews(req.query.id, "faculty", function (err, result) {
+      res.json({
+          result: result
+      });
+   });
+});
+
 module.exports = router;
