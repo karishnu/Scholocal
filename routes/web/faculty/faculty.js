@@ -39,7 +39,7 @@ router.get('/all', function (req, res, next) {
 });
 
 router.post('/review', function (req, res, next) {
-    dbuser.postReview(req.decoded._doc._id, req.query.id, req.query.review, req.query.rating, "faculty", function (err, review) {
+    dbuser.postReview(req.decoded._doc._id, req.body.id, req.body.review, req.body.rating, "faculty", function (err, review) {
        res.json({
            result: review
        });

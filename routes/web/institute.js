@@ -18,7 +18,7 @@ router.get('/', function (req, res, next) {
     var uname;
 
     if(req.query.uname) {
-        uname = req.query.uname;
+        uname = req.query.uname;body
     }
     else {
         uname = req.decoded._doc.email;
@@ -39,7 +39,7 @@ router.get('/all', function (req, res, next) {
 });
 
 router.post('/review', function (req, res, next) {
-    dbuser.postReview(req.decoded._doc._id, req.query.id, req.query.review, req.query.rating, "institute", function (err, review) {
+    dbuser.postReview(req.decoded._doc._id, req.body.id, req.body.review, req.body.rating, "institute", function (err, review) {
         res.json({
             result: review
         });

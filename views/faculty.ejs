@@ -3,16 +3,16 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.0/css/materialize.min.css">
-    <link rel="stylesheet" href="./css/faculty.css">
+    <link rel="stylesheet" href="/css/faculty.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.0/css/materialize.min.css"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
-    <script src="./js/angular-script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.0/js/materialize.min.js"></script>
+    <script src="/js/angular.min.js"></script>
+    <script src="/js/angular-script.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:200,400,700" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
-  <body ng-app="app" ng-contoller="facultyController" ng-init="init()">
+  <body ng-app="app" ng-controller="facultyController" ng-init="init(<%=JSON.stringify(faculty._id)%>)">
     <div class="navbar-fixed">
       <ul id="dropdown1" class="dropdown-content">
         <li><a href="#!">Edit Profile</a></li>
@@ -156,6 +156,27 @@
               </div>
               <div id="reviews" class="col s12">
                 <br><br>
+                <div class="post-feed row">
+
+                  <form action="#" method="post" ng-submit="addReview()">
+                    <textarea name="review" placeholder="Review Text" ng-model="reviewText" resizable="false"></textarea>
+                    <!-- <input name="id" type="text" ng-model="reviewId" value="<%=faculty._id%>"> -->
+                    <div class="row">
+                      <div class="col s2">
+                      <select name="rating" placeholder="Rating" ng-model="reviewRating" ng-init="reviewRating = 'Rating'" class="input-field" ng-options="reviewRatingValue for reviewRatingValue in reviewRatingValues">
+                        <!-- <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option> -->
+                      </select>
+                      </div>
+                      <div class="col pull-s1 s6 m8 l8" style="margin-top: 20px;">
+                        <button type="button" ng-click="addReview()" class="right post-btn">Post</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
                 <div class="review row">
                   <div class="col s3">
                     <img src="/images/profile.png">
@@ -280,6 +301,7 @@
     $('.tabs').tabs();
     $('.stats').height($('.data').height());
     $(".button-collapse").sideNav();
+    $('select').material_select();
   })
   function fileTrigger(){
     $('input[type=file]').click();

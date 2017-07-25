@@ -28,6 +28,7 @@ ul li a{
 .faculty-profile-large .stats{
   background: #002163!important;
   color: white;
+  height:auto!important;
 }
 .rating > span {
   display: inline-block;
@@ -104,6 +105,12 @@ body{
 }
 .post-feed textarea:focus{
   outline: none;
+}
+.post-feed .row{
+  padding: 0%;
+  margin-top: -10px;
+  background: #a9a9a9;
+  position: relative;
 }
 .post-feed p{
   padding: 2%;
