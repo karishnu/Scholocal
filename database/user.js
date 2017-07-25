@@ -35,4 +35,11 @@ function getReviews(id, role, callback) {
     });
 }
 
-module.exports = {saveUserNew: saveUserNew, updateUserDetails: updateUserDetails, postReview: postReview, getReviews: getReviews};
+function follow(user, id, role, callback) {
+    User.updateOne({ _id: id, role: role}, { $push: { following: user } }, function (err, result) {
+        callback(err, result);
+    });
+}
+
+module.exports = {saveUserNew: saveUserNew, updateUserDetails: updateUserDetails,
+    postReview: postReview, getReviews: getReviews, followUser: follow};

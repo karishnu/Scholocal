@@ -54,4 +54,10 @@ router.get('/review', function (req, res, next) {
     });
 });
 
+router.get('/follow', function (req, res, next) {
+    dbuser.followUser(req.query.id, req.decoded._doc._id, "institute", function (err, result) {
+        res.json(result);
+    });
+});
+
 module.exports = router;
