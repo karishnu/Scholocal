@@ -14,7 +14,7 @@
      <link href="css/simplelightbox.css" rel="stylesheet">
      <script src="js/simple-lightbox.min.js"></script>
   </head>
-  <body ng-app="app" ng-contoller="instituteController" ng-init="init()">
+  <body ng-app="app" ng-controller="instituteController" ng-init="init(<%=JSON.stringify(profile._id)%>)">
     <div class="navbar-fixed">
       <ul id="dropdown1" class="dropdown-content">
         <li><a href="#!">Edit Profile</a></li>
@@ -86,7 +86,7 @@
               </div>
             </div>
             <div class="row hide-on-med-and-up">
-              <a href="#" class="follow-button"><i class="fa fa-rss"></i>&nbsp&nbspFollow</a><br><br>
+              <a href="#" class="follow-button" ng-click="follow(true)"><i class="fa fa-rss"></i>&nbsp&nbspFollow</a><br><br>
               <a href="#" class="follow-button">Download Profile</a>
             </div>
             <div class="row stats hide-on-med-and-up">
@@ -159,7 +159,6 @@
 
                   <form action="#" method="post" ng-submit="addReview()">
                     <textarea name="review" placeholder="Review Text" ng-model="reviewText" resizable="false"></textarea>
-                    <!-- <input name="id" type="text" ng-model="reviewId" value="<%=faculty._id%>"> -->
                     <div class="row">
                       <div class="col s2">
                       <select name="rating" placeholder="Rating" ng-model="reviewRating" ng-init="reviewRating = 'Rating'" class="input-field" ng-options="reviewRatingValue for reviewRatingValue in reviewRatingValues">
@@ -176,67 +175,19 @@
                     </div>
                   </form>
                 </div>
-                <div class="review row">
+                <div class="review row" ng-repeat="review in reviews">
                   <div class="col s3">
                     <img src="/images/profile.png">
                   </div>
                   <div class="col s9 pull-s1" style="">
                     <p class="review-text">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                      {{review.review}}
                     </p>
                     <p class="review-rating">
-                      <b>Rated:  3 <span class="blue-text">&#x2605;</span></b>
+                      <b>Rated:  {{review.rating}} <span class="blue-text">&#x2605;</span></b>
                     </p>
                     <p class="review-date">
-                      <b>30.01.2013</b>
-                    </p>
-                  </div>
-                </div>
-                <div class="review row">
-                  <div class="col s3">
-                    <img src="/images/profile.png">
-                  </div>
-                  <div class="col s9 pull-s1" style="">
-                    <p class="review-text">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    </p>
-                    <p class="review-rating">
-                      <b>Rated:  3 <span class="blue-text">&#x2605;</span></b>
-                    </p>
-                    <p class="review-date">
-                      <b>30.01.2013</b>
-                    </p>
-                  </div>
-                </div>
-                <div class="review row">
-                  <div class="col s3">
-                    <img src="/images/profile.png">
-                  </div>
-                  <div class="col s9 pull-s1" style="">
-                    <p class="review-text">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    </p>
-                    <p class="review-rating">
-                      <b>Rated:  3 <span class="blue-text">&#x2605;</span></b>
-                    </p>
-                    <p class="review-date">
-                      <b>30.01.2013</b>
-                    </p>
-                  </div>
-                </div>
-                <div class="review row">
-                  <div class="col s3">
-                    <img src="/images/profile.png">
-                  </div>
-                  <div class="col s9 pull-s1" style="">
-                    <p class="review-text">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    </p>
-                    <p class="review-rating">
-                      <b>Rated:  3 <span class="blue-text">&#x2605;</span></b>
-                    </p>
-                    <p class="review-date">
-                      <b>30.01.2013</b>
+                      <b>{{review.time | date}}</b>
                     </p>
                   </div>
                 </div>
@@ -320,7 +271,7 @@
             </div>
           </div>
           <div class="col m4 l4 hide-on-small-only">
-            <a href="#" class="follow-button"><i class="fa fa-rss"></i>&nbsp&nbspFollow</a>
+            <a href="#" class="follow-button" ng-click="follow(true)"><i class="fa fa-rss"></i>&nbsp&nbspFollow</a>
             <a href="#" class="follow-button">Download Profile</a>
           </div>
         </div>
@@ -340,6 +291,7 @@
     $('.tabs').tabs();
     $('.stats').height($('.data').height());
     $(".button-collapse").sideNav();
+    $('select').material_select();
     var gallery = $('.gallery a').simpleLightbox();
   })
   function fileTrigger(){

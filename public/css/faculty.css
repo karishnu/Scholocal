@@ -25,7 +25,7 @@ ul li a{
   border: 1px solid grey!important;
   box-shadow: none!important;
 }
-.faculty-profile-large .stats{
+.faculty-profile-large .stats, .stats{
   background: #002163!important;
   color: white;
   height:auto!important;

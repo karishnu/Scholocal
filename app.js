@@ -36,6 +36,7 @@ app.get('/home', function (req, res) {
     res.render('index');
 });
 
+
 app.use('/api', api);
 app.use('/web', web);
 

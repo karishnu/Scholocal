@@ -11,15 +11,25 @@ app.controller('facultyController', function($scope, $http){
       id: $scope.id,
       rating: $scope.reviewRating
     }
+    formData.rating = formData.rating == 'Rating' ? '1' : formData.rating;
     $http.post('/web/faculty/review', formData).then(function(response){
       Materialize.toast('Post Added!', 1000);
-      $scope.getPosts();
+      $scope.reviews.push(response.data.result);
     });
   }
   $scope.getPosts = function(){
     $http.get('/web/faculty/review?id=' + $scope.id).then(function(response){
-      console.log(response.data);
-    })
+      $scope.reviews = response.data.result;
+    });
+  }
+  $scope.follow = function(shouldFollow){
+    if(shouldFollow){
+      $http.get('/web/faculty/follow?id=' + $scope.id).then(function(response){
+        Materialize.toast('Following User Now!', 1000);
+      })
+    } else{
+
+    }
   }
 });
 
@@ -35,15 +45,25 @@ app.controller('instituteController', function($scope, $http){
       id: $scope.id,
       rating: $scope.reviewRating
     }
+    formData.rating = formData.rating == 'Rating' ? '1' : formData.rating;
     $http.post('/web/institute/review', formData).then(function(response){
       Materialize.toast('Post Added!', 1000);
-      $scope.getPosts();
+      $scope.reviews.push(response.data.result);
     });
   }
   $scope.getPosts = function(){
     $http.get('/web/institute/review?id=' + $scope.id).then(function(response){
-      console.log(response.data);
-    })
+      $scope.reviews = response.data.result;
+    });
+  }
+  $scope.follow = function(shouldFollow){
+    if(shouldFollow){
+      $http.get('/web/institute/follow?id=' + $scope.id).then(function(response){
+        Materialize.toast('Following User Now!', 1000);
+      })
+    } else{
+
+    }
   }
 });
 

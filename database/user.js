@@ -32,7 +32,9 @@ function postReview(id, by, review, rating, role, callback) {
 }
 
 function getReviews(id, role, callback) {
-    Review.find({user: id, role: role}, function (err, res) {
+    Review.find({user: id, role: role})
+    .populate('posted_by', 'name_first name_last role')
+    .exec(function (err, res) {
         callback(err, res)
     });
 }
