@@ -20,7 +20,7 @@
       </div>
       <br><br>
       <div class="col-md-offset-3">
-        <form role="form" action="/web/auth/save" method="post">
+        <form role="form" action="" method="post">
         <div class="row setup-content" id="step-2">
           <div class="col-xs-12 col-md-8">
             <div class="col-md-12">
@@ -30,7 +30,7 @@
                   <label for="current_institute">Current Institute Name</label>
                 </div>
                 <div class="col-xs-12 col-md-9">
-                  <input type="text" class="form-control" id="current_institute" name="current_institute" placeholder="Institute Name">
+                  <input type="text" class="form-control" id="current_institute" name="current_institute" value="<%= profile.faculty.current_institute %>">
                 </div>
               </div>
               <div class="form-group row">
@@ -38,7 +38,7 @@
                   <label for="expertise">Expertise</label>
                 </div>
                 <div class="col-xs-12 col-md-9">
-                  <input type="text" class="form-control" id="expertise" name="expertise" placeholder="Expertise">
+                  <input type="text" class="form-control" id="expertise" name="expertise" value="<%= profile.faculty.expertise %>">
                 </div>
               </div>
               <div class="form-group row">
@@ -46,7 +46,7 @@
                   <label for="mode_teaching">Mode Of Teaching</label>
                 </div>
                 <div class="col-xs-12 col-md-9">
-                  <input type="text" class="form-control" id="mode_teaching" name="mode_teaching" placeholder="Mode Of Teaching">
+                  <input type="text" class="form-control" id="mode_teaching" name="mode_teaching" value="<%= profile.faculty.mode_teaching %>">
                 </div>
               </div>
               <div class="form-group row">
@@ -54,7 +54,7 @@
                   <label for="location">Location</label>
                 </div>
                 <div class="col-xs-12 col-md-9">
-                  <input type="text" class="form-control" id="location" name="location" placeholder="Location">
+                  <input type="text" class="form-control" id="location" name="location" value="<%= profile.faculty.location %>">
                 </div>
               </div>
               <div class="form-group row">
@@ -62,7 +62,7 @@
                   <label for="contact">Mobile</label>
                 </div>
                 <div class="col-xs-12 col-md-9">
-                  <input type="text" class="form-control" id="contact" name="contact" placeholder="Mobile Number">
+                  <input type="text" class="form-control" id="contact" name="contact" <%= profile.faculty.contact %>>
                 </div>
               </div>
               <div class="form-group row">
@@ -70,7 +70,7 @@
                   <label for="education">Education</label>
                 </div>
                 <div class="col-xs-12 col-md-9">
-                  <input type="text" class="form-control" id="education" name="education" placeholder="Education">
+                  <input type="text" class="form-control" id="education" name="education" <%= profile.faculty.education %>>
                 </div>
               </div>
               <!-- <div class="form-group row achievement">

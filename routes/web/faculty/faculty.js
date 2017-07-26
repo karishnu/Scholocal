@@ -5,9 +5,10 @@ const path = require('path');
 const database = require('../../../database/faculty');
 const dbuser = require('../../../database/user');
 const authenticate = require('../../../authenticate');
+const faculty_edit = require("./faculty_edit");
 const unirest = require('unirest');
 
-router.use(express.static(path.join(__dirname, '../../public')));
+router.use(express.static(path.join(__dirname, '../../../public')));
 
 router.use(function (req, res, next) {
     authenticate.verify_cookie(req, res, next);
@@ -59,5 +60,7 @@ router.get('/follow', function (req, res, next) {
        res.json(result);
     });
 });
+
+router.use('/edit', faculty_edit);
 
 module.exports = router;
