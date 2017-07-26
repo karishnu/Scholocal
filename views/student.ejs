@@ -15,7 +15,7 @@
   <body ng-app="app" ng-contoller="facultyController" ng-init="init()">
     <div class="navbar-fixed">
       <ul id="dropdown1" class="dropdown-content">
-        <li><a href="#!">Edit Profile</a></li>
+        <li><a href="edit">Edit Profile</a></li>
         <li><a href="#!">Logout</a></li>
       </ul>
      <nav>
@@ -44,7 +44,7 @@
          PCM
        </p>
        <p class="header">Present Grade: </p>
-       <p>11th</p>
+       <p><%= profile.student.grade %></p>
        <p class="header">Reviews: </p>
        <p>32</p>
        <p class="header">Previous Institutes: </p>
@@ -54,7 +54,7 @@
          <li>asd</li>
        </ul>
        <p class="header">Current Institute: </p>
-       <p><%= profile.student.current_institute %></p>
+       <p><%= profile.student.school %></p>
       </div>
       <div class="col s12 m9 l9 data">
         <br>
@@ -68,15 +68,15 @@
             <div class="row">
               <div class="col m4 l4">
                 <p class="blue-text">Interests</p>
-                <p>asdasd</p>
+                <p><%= profile.student.interests %></p>
               </div>
               <div class="col m4 l4">
                 <p class="blue-text">Location</p>
-                <p>asd</p>
+                <p><%= profile.student.location %></p>
               </div>
               <div class="col m4 l4">
                 <p class="blue-text">Contact</p>
-                <p>adsasd</p>
+                <p><%= profile.student.contact %></p>
               </div>
             </div>
             <div class="row hide-on-med-and-up">
@@ -92,7 +92,7 @@
                 PCM
               </p>
               <p class="header">Present Grade: </p>
-              <p>11th</p>
+              <p><%= profile.student.grade %></p>
               <p class="header">Reviews: </p>
               <p>32</p>
               <p class="header">Previous Institutes: </p>
@@ -102,7 +102,7 @@
                 <li>asd</li>
               </ul>
               <p class="header">Current Institute: </p>
-              <p><%= profile.student.current_institute %></p>
+              <p><%= profile.student.school %></p>
              </div>
             <div class="row">
               <div class="col s12">

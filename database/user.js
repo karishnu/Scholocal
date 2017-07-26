@@ -9,8 +9,10 @@ function saveUserNew(query, callback) {
     });
 }
 
-function updateUserDetails(userName, userDetails, callback) {
-    User.findOneAndUpdate({email: userName}, userDetails, function (err, user) {
+function updateUserDetails(id, role, userDetails, callback) {
+    var objectToSave = {};
+    objectToSave[role] = userDetails;
+    User.findOneAndUpdate({_id: id}, objectToSave, userDetails, function (err, user) {
        callback(err, user);
     });
 }

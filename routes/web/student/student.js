@@ -11,6 +11,8 @@ router.use(function (req, res, next) {
     authenticate.verify_cookie(req, res, next);
 });
 
+router.use(express.static(path.join(__dirname, '../../../public')));
+
 router.get('/', function (req, res, next) {
 
     var uname;

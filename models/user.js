@@ -16,10 +16,12 @@ const userSchema = mongoose.Schema({
     date_signup: {type: Date, default: Date.now, required: true},
     following: [{ type: Schema.Types.ObjectId, ref: 'User' }],
     student: {
-        school: String,
-        interests: String,
-        location: String,
-        contact: String,
+        school: {type: String, default: "Not Mentioned"},
+        interests: {type: String, default: "Not Mentioned"},
+        location: {type: String, default: "Not Mentioned"},
+        contact: {type: String, default: "Not Mentioned"},
+        grade: {type: String, default: "Not Mentioned"},
+        stream: {type: String, default: "Not Mentioned"},
         achievements: [{
             details: String,
             year: String
