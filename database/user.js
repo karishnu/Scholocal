@@ -25,7 +25,9 @@ function postReview(id, by, review, rating, role, callback) {
     });
 
     reviewObject.save(function (err, object) {
-        callback(err, object);
+        object.populate('posted_by', {'name_first':1, "name_last":1, "role":1}, function(error, new_item) {
+            callback(err, new_item.toObject());
+        });
     });
 }
 
