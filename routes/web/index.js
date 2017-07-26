@@ -8,7 +8,7 @@ const auth = require("./auth");
 const faculty = require("./faculty/faculty");
 const student = require("./student/student");
 const profile = require("./profile");
-const institute = require("./institute");
+const institute = require("./institute/institute");
 
 router.use(express.static(path.join(__dirname, '../../public')));
 

@@ -2,12 +2,14 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 
-const database = require('../../database/institute');
-const authenticate = require('../../authenticate');
+const database = require('../../../database/institute');
+const authenticate = require('../../../authenticate');
 const unirest = require('unirest');
-const dbuser = require('../../database/user');
+const institute_edit = require("./institute_edit");
+const dbuser = require('../../../database/user');
 
-router.use(express.static(path.join(__dirname, '../../public')));
+router.use(express.static(path.join(__dirname, '../../../public')));
+
 router.use(function (req, res, next) {
     authenticate.verify_cookie(req, res, next);
 });
@@ -58,5 +60,7 @@ router.get('/follow', function (req, res, next) {
         res.json(result);
     });
 });
+
+router.use('/edit', institute_edit);
 
 module.exports = router;
