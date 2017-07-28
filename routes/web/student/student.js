@@ -3,6 +3,7 @@ const router = express.Router();
 const path = require('path');
 
 const database = require('../../../database/student');
+const postDb = require('../../../database/posts');
 const authenticate = require('../../../authenticate');
 const student_edit = require("./student_edit");
 const unirest = require('unirest');
@@ -40,5 +41,12 @@ router.get('/all', function (req, res, next) {
     });
 });
 
+router.post('/post', function (req, res, next) {
+   postDb.createPost(req.decoded._doc._id, req.body.text, function (err, result) {
+      res.json({
+          result: result
+      })
+   });
+});
 
 module.exports = router;

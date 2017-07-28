@@ -3,6 +3,7 @@ const router = express.Router();
 const path = require('path');
 
 const database = require('../../../database/institute');
+const postDb = require('../../../database/posts');
 const authenticate = require('../../../authenticate');
 const unirest = require('unirest');
 const institute_edit = require("./institute_edit");
@@ -62,5 +63,13 @@ router.get('/follow', function (req, res, next) {
 });
 
 router.use('/edit', institute_edit);
+
+router.post('/post', function (req, res, next) {
+    postDb.createPost(req.decoded._doc._id, req.body.text, function (err, result) {
+        res.json({
+            result: result
+        })
+    });
+});
 
 module.exports = router;

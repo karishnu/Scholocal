@@ -3,6 +3,7 @@ const router = express.Router();
 const path = require('path');
 
 const database = require('../../../database/faculty');
+const postDb = require('../../../database/posts');
 const dbuser = require('../../../database/user');
 const authenticate = require('../../../authenticate');
 const faculty_edit = require("./faculty_edit");
@@ -62,5 +63,17 @@ router.get('/follow', function (req, res, next) {
 });
 
 router.use('/edit', faculty_edit);
+
+router.post('/post', function (req, res, next) {
+    postDb.createPost(req.decoded._doc._id, req.body.text, function (err, result) {
+        res.json({
+            result: result
+        });
+    });
+});
+
+router.get('/post', function (req, res, next) {
+
+});
 
 module.exports = router;
