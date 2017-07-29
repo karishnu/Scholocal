@@ -62,6 +62,12 @@ router.get('/follow', function (req, res, next) {
     });
 });
 
+router.get('/unfollow', function (req, res, next) {
+    dbuser.unfollowUser(req.query.id, req.decoded._doc._id, "faculty", function (err, result) {
+        res.json(result);
+    });
+});
+
 router.use('/edit', faculty_edit);
 
 router.post('/post', function (req, res, next) {
@@ -73,7 +79,7 @@ router.post('/post', function (req, res, next) {
 });
 
 router.get('/post', function (req, res, next) {
-    postDb.getPost(req.decoded._doc._id, req.body.lastTime, function (err, result) {
+    postDb.getPost(req.decoded._doc._id, req.query.lastTime, function (err, result) {
         res.json({
             result: result
         });

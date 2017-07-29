@@ -42,10 +42,26 @@ function getReviews(id, role, callback) {
 }
 
 function follow(user, id, role, callback) {
-    User.updateOne({ _id: id, role: role}, { $push: { following: user } }, function (err, result) {
-        callback(err, result);
-    });
+    if(user === id){
+        callback("You can't follow yourself!", null);
+    }
+    else {
+        User.updateOne({_id: id, role: role}, {$push: {following: user}}, function (err, result) {
+            callback(err, result);
+        });
+    }
+}
+
+function unfollow(user, id, role, callback) {
+    if(user === id){
+        callback("You can't unfollow yourself!", null);
+    }
+    else {
+        User.updateOne({_id: id, role: role}, {$pull: {following: user}}, function (err, result) {
+            callback(err, result);
+        });
+    }
 }
 
 module.exports = {saveUserNew: saveUserNew, updateUserDetails: updateUserDetails,
-    postReview: postReview, getReviews: getReviews, followUser: follow};
+    postReview: postReview, getReviews: getReviews, followUser: follow, unfollowUser: unfollow};
