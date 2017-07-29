@@ -73,7 +73,11 @@ router.post('/post', function (req, res, next) {
 });
 
 router.get('/post', function (req, res, next) {
-
+    postDb.getPost(req.decoded._doc._id, req.body.lastTime, function (err, result) {
+        res.json({
+            result: result
+        });
+    });
 });
 
 module.exports = router;

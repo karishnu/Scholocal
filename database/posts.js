@@ -12,4 +12,13 @@ function createPost(id, text, callback) {
     });
 }
 
-module.exports = {createPost: createPost};
+function getPost(id, dateAfter, callback) {
+    Post.find( {posted_by: id, createdOn: { $lte: dateAfter } } )
+        .limit( 20 )
+        .sort( '-time' )
+        .exec(function (err, result) {
+           callback(err, result);
+        });
+}
+
+module.exports = {createPost: createPost, getPost: getPost};

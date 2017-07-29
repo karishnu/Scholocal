@@ -68,7 +68,15 @@ router.post('/post', function (req, res, next) {
     postDb.createPost(req.decoded._doc._id, req.body.text, function (err, result) {
         res.json({
             result: result
-        })
+        });
+    });
+});
+
+router.get('/post', function (req, res, next) {
+    postDb.getPost(req.decoded._doc._id, req.body.lastTime, function (err, result) {
+        res.json({
+            result: result
+        });
     });
 });
 
