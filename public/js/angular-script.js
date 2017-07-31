@@ -21,6 +21,9 @@ app.controller('facultyController', function($scope, $http){
     $http.get('/web/faculty/review?id=' + $scope.id).then(function(response){
       $scope.reviews = response.data.result;
     });
+    $http.get('/web/faculty/post').then(function(response){
+      $scope.posts = response.data.result;
+    });
   }
   $scope.follow = function(shouldFollow){
     if(shouldFollow){
@@ -30,6 +33,11 @@ app.controller('facultyController', function($scope, $http){
     } else{
 
     }
+  }
+  $scope.postFeed = function(){
+    $http.post('/web/faculty/post', {text: $scope.postText}).then(function(response){
+      $scope.posts.push(response.data.result);
+    })
   }
 });
 
@@ -55,6 +63,9 @@ app.controller('instituteController', function($scope, $http){
     $http.get('/web/institute/review?id=' + $scope.id).then(function(response){
       $scope.reviews = response.data.result;
     });
+    $http.get('/web/institute/post').then(function(response){
+      $scope.posts = response.data.result;
+    });
   }
   $scope.follow = function(shouldFollow){
     if(shouldFollow){
@@ -65,8 +76,33 @@ app.controller('instituteController', function($scope, $http){
 
     }
   }
+  $scope.postFeed = function(){
+    $http.post('/web/institute/post', {text: $scope.postText}).then(function(response){
+      $scope.posts.push(response.data.result);
+    })
+  }
 });
+
+app.controller('studentController', function($scope, $http){
+  $scope.init = function(id){
+    $scope.id = id;
+    $scope.getPosts();
+  }
+  $scope.postFeed = function(){
+    $http.post('/web/student/post', {text: $scope.postText}).then(function(response){
+      console.log(response.data);
+    })
+  }
+  $scope.getPosts = function(){
+    // $http.get('/web/student/review?id=' + $scope.id).then(function(response){
+    //   $scope.reviews = response.data.result;
+    // });
+    $http.get('/web/student/post').then(function(response){
+      $scope.posts = response.data.result;
+    });
+  }
+})
 
 app.controller('registerController', function($scope){
 
-})
+});
