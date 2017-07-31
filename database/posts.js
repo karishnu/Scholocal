@@ -8,9 +8,14 @@ function createPost(id, text, callback) {
     });
 
     post.save(function (err, result) {
-        result.populate('posted_by', {'name_first':1, "name_last":1, "role":1}, function(error, new_item) {
-            callback(err, new_item.toObject());
-        });
+        if(err){
+            callback(err, null);
+        }
+        else {
+            result.populate('posted_by', {'name_first': 1, "name_last": 1, "role": 1}, function (error, new_item) {
+                callback(err, new_item.toObject());
+            });
+        }
     });
 }
 
@@ -19,6 +24,7 @@ function getPost(id, dateAfter, callback) {
         .limit(20)
         .sort('-time')
         .populate("posted_by", "name_first name_last role")
+        .populate("comment.posted_by", "name_first name_last role")
         .exec(function (err, result) {
             callback(err, result);
         });
