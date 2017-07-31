@@ -23,7 +23,7 @@ function createPost(id, text, callback) {
 function getPost(id, dateAfter, callback) {
     Post.find({posted_by: id, createdOn: {$lte: dateAfter}})
         .limit(20)
-        .sort('-time')
+        .sort('-createdOn')
         .populate("posted_by", "name_first name_last role")
         .populate("comment.posted_by", "name_first name_last role")
         .exec(function (err, result) {
@@ -49,4 +49,15 @@ function commentOnPost(id_post, id_commenter, text, callback) {
     });
 }
 
-module.exports = {createPost: createPost, getPost: getPost, likePost: likePost, commentOnPost: commentOnPost};
+function getFeed(user_id, dateAfter, callback) {
+    User.findById(user_id, function (err, result) {
+       Post.find({posted_by: result.following, createdOn: {$lte: dateAfter}})
+           .limit(20)
+           .sort('-createdOn')
+           .exec(function (err, posts) {
+               callback(err, posts);
+           });
+    });
+}
+
+module.exports = {createPost: createPost, getPost: getPost, likePost: likePost, commentOnPost: commentOnPost, getFeed: getFeed};

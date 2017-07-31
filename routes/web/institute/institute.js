@@ -21,7 +21,7 @@ router.get('/', function (req, res, next) {
     var uname;
 
     if(req.query.uname) {
-        uname = req.query.uname;body
+        uname = req.query.uname;
     }
     else {
         uname = req.decoded._doc.email;
