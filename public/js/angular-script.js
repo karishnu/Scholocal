@@ -90,8 +90,8 @@ app.controller('studentController', function($scope, $http){
   }
   $scope.postFeed = function(){
     $http.post('/web/student/post', {text: $scope.postText}).then(function(response){
-      console.log(response.data);
-    })
+      $scope.posts.push(response.data.result);
+    });
   }
   $scope.getPosts = function(){
     // $http.get('/web/student/review?id=' + $scope.id).then(function(response){
