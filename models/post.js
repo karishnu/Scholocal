@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 // define the schema for our user model
 const postSchema = mongoose.Schema({
     posted_by: { type: Schema.Types.ObjectId, ref: 'User' },
-    post: {type: String, required: true},
+    text: {type: String, required: true},
     likes: [{ type: Schema.Types.ObjectId, ref: 'User' }],
     comment: [{posted_by: { type: Schema.Types.ObjectId, ref: 'User' },
             text: {type: String, required: true}}],

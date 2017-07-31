@@ -4,11 +4,12 @@ const Post = require("../models/post").Post;
 function createPost(id, text, callback) {
     var post = new Post({
         posted_by: id,
-        post: text
+        text: text
     });
 
     post.save(function (err, result) {
         if(err){
+            console.log(err);
             callback(err, null);
         }
         else {
