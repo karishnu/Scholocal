@@ -115,7 +115,7 @@
               </div>
               <div id="timeline" class="col s12">
                 <div class="post-feed">
-                  <textarea name="data" placeholder="Ask A Question" resizable="false"></textarea>
+                  <textarea name="data" ng-model="postText" placeholder="Ask A Question" resizable="false"></textarea>
                   <input type="file" style="display: none;" accept="image/*">
                   <p><a href="#" onClick="fileTrigger()" style="color: black"><i class="fa fa-paperclip" style="transform: rotate(270deg)"></i>Attach A File</a>
                     <button type="button" ng-click="postFeed()" class="right post-btn">Post</button>
@@ -130,7 +130,7 @@
                     <p class="grey-text">{{post.time | date}}</p>
                   </div>
                   <div class="feed-content">
-                    <p>{{post.post}}</p>
+                    <p>{{post.text}}</p>
                     <!-- <img src="/images/carouselimage.png"> -->
                   </div>
                   <div class="feed-like">
