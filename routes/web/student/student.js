@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const path = require('path');
+const post_path = require('../post');
 
 const database = require('../../../database/student');
 const postDb = require('../../../database/posts');
@@ -31,8 +32,6 @@ router.get('/', function (req, res, next) {
     });
 });
 
-router.use('/edit', student_edit);
-
 router.get('/all', function (req, res, next) {
     database.getStudents(req.query, function (err, result) {
        res.json({
@@ -41,32 +40,7 @@ router.get('/all', function (req, res, next) {
     });
 });
 
-router.post('/post', function (req, res, next) {
-   postDb.createPost(req.decoded._doc._id, req.body.text, function (err, result) {
-      res.json({
-          result: result
-      });
-   });
-});
-
-router.post('/post/like', function (req, res, next) {
-    postDb.likePost(req.body.id, req.body.decoded._doc._id, function (err, result) {
-        res.json({result: result});
-    });
-});
-
-router.post('/post/comment', function (req, res, next) {
-    postDb.commentOnPost(req.body.id, req.body.decoded._doc._id, req.body.text, function (err, result) {
-        res.json({result: result});
-    });
-});
-
-router.get('/post', function (req, res, next) {
-    postDb.getPost(req.decoded._doc._id, req.query.lastTime, function (err, result) {
-        res.json({
-            result: result
-        });
-    });
-});
+router.use('/edit', student_edit);
+router.use('/post', post_path);
 
 module.exports = router;
