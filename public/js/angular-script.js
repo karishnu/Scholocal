@@ -44,14 +44,14 @@ app.controller('facultyController', function($scope, $http){
   $scope.likePost = function(_id){
     console.log(_id);
     $http.post('/web/faculty/post/like', {id: _id}).then(function(response){
-      console.log(response);
+      $scope.getPosts();
     });
   }
 
   $scope.commentFeed = function(_id){
     $http.post('/web/faculty/post/comment', {id: _id, text: this.commentText}).then(function(response){
-      Materialize.toast('asd', 1000);
-    })
+      $scope.getPosts();
+    });
   }
 });
 
@@ -65,7 +65,7 @@ app.controller('instituteController', function($scope, $http){
   $scope.likePost = function(_id){
     console.log(_id);
     $http.post('/web/faculty/post/like', {id: _id}).then(function(response){
-      console.log(response);
+      $scope.getPosts();
     });
   }
   $scope.addReview = function(){
@@ -105,8 +105,8 @@ app.controller('instituteController', function($scope, $http){
 
   $scope.commentFeed = function(_id){
     $http.post('/web/institute/post/comment', {id: _id, text: this.commentText}).then(function(response){
-      Materialize.toast('asd', 1000);
-    })
+      $scope.getPosts();
+    });
   }
 
 });
@@ -117,9 +117,8 @@ app.controller('studentController', function($scope, $http){
     $scope.getPosts();
   }
   $scope.likePost = function(_id){
-    console.log(_id);
     $http.post('/web/faculty/post/like', {id: _id}).then(function(response){
-      console.log(response);
+      $scope.getPosts();
     });
   }
   $scope.postFeed = function(){
@@ -133,16 +132,15 @@ app.controller('studentController', function($scope, $http){
     // });
     $http.get('/web/student/post').then(function(response){
       $scope.posts = response.data.result;
+      console.log($scope.posts)
     });
   }
 
   $scope.commentFeed = function(_id){
     $http.post('/web/student/post/comment', {id: _id, text: this.commentText}).then(function(response){
-      console.log(response.data.result);
-      $scope.posts[$scope.posts.findIndex(x => x._id == response.data.result._id)] = response.data.result;
+      $scope.getPosts();
     });
   }
-
 })
 
 app.controller('registerController', function($scope){
