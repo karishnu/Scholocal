@@ -45,7 +45,10 @@ function commentOnPost(id_post, id_commenter, text, callback) {
     };
 
     Post.findByIdAndUpdate(id_post, {$push: {comment: objectToPush}}, function (err, res) {
-        callback(err, res);
+
+        res.populate('posted_by', {'name_first': 1, "name_last": 1, "role": 1}, function (error, new_item) {
+            callback(err, new_item.toObject());
+        });
     });
 }
 
