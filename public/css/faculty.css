@@ -311,3 +311,9 @@ div#searchcontainer.opensearch form {
 #sidenav-overlay{
   background-color: rgba(0,0,0,0.1);
 }
+.comment p{
+  background: white; 
+}
+.comment{
+  border: 1px solid #ddd;
+}

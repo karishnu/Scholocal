@@ -23,6 +23,7 @@ app.controller('facultyController', function($scope, $http){
     });
     $http.get('/web/faculty/post').then(function(response){
       $scope.posts = response.data.result;
+      console.log($scope.posts);
     });
   }
   $scope.follow = function(shouldFollow){
@@ -36,7 +37,20 @@ app.controller('facultyController', function($scope, $http){
   }
   $scope.postFeed = function(){
     $http.post('/web/faculty/post', {text: $scope.postText}).then(function(response){
-      $scope.posts.push(response.data.result);
+      $scope.posts.unshift(response.data.result);
+    });
+  }
+
+  $scope.likePost = function(_id){
+    console.log(_id);
+    $http.post('/web/faculty/post/like', {id: _id}).then(function(response){
+      console.log(response);
+    });
+  }
+
+  $scope.commentFeed = function(_id){
+    $http.post('/web/faculty/post/comment', {id: _id, text: $scope.commentText}).then(function(response){
+      Materialize.toast('asd', 1000);
     })
   }
 });
@@ -46,6 +60,13 @@ app.controller('instituteController', function($scope, $http){
   $scope.init = function(id){
     $scope.id = id;
     $scope.getPosts();
+  }
+
+  $scope.likePost = function(_id){
+    console.log(_id);
+    $http.post('/web/faculty/post/like', {id: _id}).then(function(response){
+      console.log(response);
+    });
   }
   $scope.addReview = function(){
     var formData = {
@@ -78,9 +99,16 @@ app.controller('instituteController', function($scope, $http){
   }
   $scope.postFeed = function(){
     $http.post('/web/institute/post', {text: $scope.postText}).then(function(response){
-      $scope.posts.push(response.data.result);
+      $scope.posts.unshift(response.data.result);
     })
   }
+
+  $scope.commentFeed = function(_id){
+    $http.post('/web/institute/post/comment', {id: _id, text: $scope.commentText}).then(function(response){
+      Materialize.toast('asd', 1000);
+    })
+  }
+
 });
 
 app.controller('studentController', function($scope, $http){
@@ -88,9 +116,15 @@ app.controller('studentController', function($scope, $http){
     $scope.id = id;
     $scope.getPosts();
   }
+  $scope.likePost = function(_id){
+    console.log(_id);
+    $http.post('/web/faculty/post/like', {id: _id}).then(function(response){
+      console.log(response);
+    });
+  }
   $scope.postFeed = function(){
     $http.post('/web/student/post', {text: $scope.postText}).then(function(response){
-      $scope.posts.push(response.data.result);
+      $scope.posts.unshift(response.data.result);
     });
   }
   $scope.getPosts = function(){
@@ -101,6 +135,13 @@ app.controller('studentController', function($scope, $http){
       $scope.posts = response.data.result;
     });
   }
+
+  $scope.commentFeed = function(_id){
+    $http.post('/web/student/post/comment', {id: _id, text: $scope.commentText}).then(function(response){
+      Materialize.toast('asd', 1000);
+    });
+  }
+
 })
 
 app.controller('registerController', function($scope){
