@@ -138,14 +138,14 @@
                     <!-- <a href="#"><i class="fa fa-comment"></i> Comment</a>
                     <a href="#"><i class="fa fa-share"></i> Share</a> -->
                     <div class="post-feed">
-                      <textarea name="data" placeholder="Comment" ng-model="commentText" resizable="false"></textarea>
+                      <textarea name="commentText" placeholder="Comment" ng-model="commentText" resizable="false"></textarea>
                       <input type="file" style="display: none;" accept="image/*">
                       <p style="height: 50px">
                         <button type="button" ng-click="commentFeed(post._id)" class="right post-btn">Post</button>
                       </p>
-                      <div class="comment" ng-repeat="comment in post.comments">
-                        <p><a href="#">{{comment}}</a></p>
-                        <p style="margin-left: 5%;">aasdasd</p>
+                      <div class="comment" ng-repeat="comment in post.comment">
+                        <p><a href="#" style="font-weight: bold">{{comment.posted_by.name_first}} {{comment.posted_by.name_last}}</a></p>
+                        <p style="margin-left: 5%;">{{comment.text}}</p>
                       </div>
                     </div>
                   </div>

@@ -49,7 +49,7 @@ app.controller('facultyController', function($scope, $http){
   }
 
   $scope.commentFeed = function(_id){
-    $http.post('/web/faculty/post/comment', {id: _id, text: $scope.commentText}).then(function(response){
+    $http.post('/web/faculty/post/comment', {id: _id, text: this.commentText}).then(function(response){
       Materialize.toast('asd', 1000);
     })
   }
@@ -104,7 +104,7 @@ app.controller('instituteController', function($scope, $http){
   }
 
   $scope.commentFeed = function(_id){
-    $http.post('/web/institute/post/comment', {id: _id, text: $scope.commentText}).then(function(response){
+    $http.post('/web/institute/post/comment', {id: _id, text: this.commentText}).then(function(response){
       Materialize.toast('asd', 1000);
     })
   }
@@ -137,8 +137,9 @@ app.controller('studentController', function($scope, $http){
   }
 
   $scope.commentFeed = function(_id){
-    $http.post('/web/student/post/comment', {id: _id, text: $scope.commentText}).then(function(response){
-      Materialize.toast('asd', 1000);
+    $http.post('/web/student/post/comment', {id: _id, text: this.commentText}).then(function(response){
+      console.log(response.data.result);
+      $scope.posts[$scope.posts.findIndex(x => x._id == response.data.result._id)] = response.data.result;
     });
   }
 
