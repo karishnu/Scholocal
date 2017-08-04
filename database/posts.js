@@ -21,7 +21,7 @@ function createPost(id, text, callback) {
 }
 
 function getPost(id, dateAfter, callback) {
-    Post.find({posted_by: id, createdOn: {$lte: dateAfter}})
+    Post.find({posted_by: id})
         .limit(20)
         .sort('-createdOn')
         .populate("posted_by", "name_first name_last role")

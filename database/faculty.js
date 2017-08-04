@@ -1,7 +1,7 @@
 var User = require('../models/user').User;
 
 function getFacultyProfile(userName, callback) {
-    User.findOne({email: userName, role: 'faculty'}, function (err, faculty) {
+    User.findOne({_id: userName, role: 'faculty'}, function (err, faculty) {
         callback(err, faculty);
     });
 }

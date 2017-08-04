@@ -17,7 +17,7 @@ router.post('/', function (req, res, next) {
 });
 
 router.get('/', function (req, res, next) {
-    postDb.getPost(req.decoded._doc._id, req.query.lastTime, function (err, result) {
+    postDb.getPost(req.query.id, req.query.lastTime, function (err, result) {
         res.json({result: result});
     });
 });

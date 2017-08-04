@@ -21,7 +21,7 @@ app.controller('facultyController', function($scope, $http){
     $http.get('/web/faculty/review?id=' + $scope.id).then(function(response){
       $scope.reviews = response.data.result;
     });
-    $http.get('/web/faculty/post').then(function(response){
+    $http.get('/web/faculty/post?id=' + $scope.id).then(function(response){
       $scope.posts = response.data.result;
       console.log($scope.posts);
     });
@@ -84,7 +84,7 @@ app.controller('instituteController', function($scope, $http){
     $http.get('/web/institute/review?id=' + $scope.id).then(function(response){
       $scope.reviews = response.data.result;
     });
-    $http.get('/web/institute/post').then(function(response){
+    $http.get('/web/institute/post?id=' + $scope.id).then(function(response){
       $scope.posts = response.data.result;
     });
   }
