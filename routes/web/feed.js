@@ -11,7 +11,7 @@ router.use(function (req, res, next) {
 });
 
 router.get('/', function (req, res, next) {
-   //render feed page here
+   res.render('feed');
 });
 
 router.get('/posts', function (req, res, next) {
