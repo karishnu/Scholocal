@@ -11,6 +11,7 @@
     color: white!important;
     font-size: 120%!important;
   }
+
   /*#mycarousel{
     position: relative;
     top: -75px;
@@ -328,6 +329,9 @@ body{
 @media only screen and (min-device-width: 300px) and (max-device-width: 600px){
   .navbar{
     background: black!important;
+  }
+  .navbar-collapse .navbar-right{
+    margin-top: 0px!important;;
   }
   div#searchcontainer form input[type="text"] {
     width: 95%;

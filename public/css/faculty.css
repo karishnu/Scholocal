@@ -169,6 +169,10 @@ body{
   .hide-on-med-and-up{
     display: block;
   }
+  .nav-wrapper .brand-logo img{
+    width: 50%!important;
+    margin-left: -45px;
+  }
 }
 
 
@@ -312,7 +316,7 @@ div#searchcontainer.opensearch form {
   background-color: rgba(0,0,0,0.1);
 }
 .comment p{
-  background: white; 
+  background: white;
 }
 .comment{
   border: 1px solid #ddd;
