@@ -60,6 +60,8 @@ const userSchema = mongoose.Schema({
     }
 });
 
+userSchema.index({'$**': 'text'});
+
 // Execute before each user.save() call
 userSchema.pre('save', function (callback) {
     const user = this;

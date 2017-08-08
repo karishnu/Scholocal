@@ -9,6 +9,7 @@ const faculty = require("./faculty/faculty");
 const student = require("./student/student");
 const profile = require("./profile");
 const feed = require("./feed");
+const search = require("./search");
 const institute = require("./institute/institute");
 
 router.use(express.static(path.join(__dirname, '../../public')));
@@ -23,5 +24,6 @@ router.use('/profile', profile);
 router.use('/student', student);
 router.use('/institute', institute);
 router.use('/feed', feed);
+router.use('/search', search);
 
 module.exports = router;
