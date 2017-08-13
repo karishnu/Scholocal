@@ -6,6 +6,12 @@ function getFacultyProfile(userName, callback) {
     });
 }
 
+function getProfile(id, callback) {
+    User.findOne({_id: id}, function (err, student) {
+        callback(err, student);
+    });
+}
+
 function getFaculties(query, callback) {
     query['role'] = 'faculty';
     User.find(query, function (err, faculties) {
@@ -14,4 +20,4 @@ function getFaculties(query, callback) {
 }
 
 module.exports = {getFacultyProfile: getFacultyProfile,
-    getFaculties: getFaculties};
+    getFaculties: getFaculties, getProfile: getProfile};

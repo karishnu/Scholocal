@@ -19,7 +19,7 @@
     <%for(var i in data){%>
       <div class="result">
         <img src="/images/profile.png">
-        <a href="#"><%=data[i].name_first%> <%=data[i].name_last%> - <%=data[i].role.charAt(0).toUpperCase() + data[i].role.slice(1)%></a>
+        <a href="/web/profile?id=<%=data[i]._id%>"><%=data[i].name_first%> <%=data[i].name_last%> - <%=data[i].role.charAt(0).toUpperCase() + data[i].role.slice(1)%></a>
       </div>
       <br>
     <%}%>

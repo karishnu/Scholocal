@@ -19,15 +19,14 @@ router.get('/', function (req, res, next) {
 
     var uname;
 
-    if(req.query.uname) {
-        uname = req.query.uname;
+    if(req.query.id) {
+        uname = req.query.id;
     }
     else {
-        uname = req.decoded._doc.email;
+        uname = req.decoded._doc._id;
     }
 
     database.getStudentProfile(uname, function (err, student) {
-        console.log(student);
         res.render('student', {profile: student});
     });
 });

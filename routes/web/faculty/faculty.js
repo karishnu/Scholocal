@@ -27,7 +27,6 @@ router.get('/', function (req, res, next) {
     }
 
     database.getFacultyProfile(uname, function (err, faculty) {
-        console.log(faculty);
         res.render('faculty', {faculty: faculty});
     });
 });

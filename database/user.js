@@ -9,6 +9,12 @@ function saveUserNew(query, callback) {
     });
 }
 
+function getUser(id, callback) {
+    User.findById(id, function (err, user) {
+       callback(err, user);
+    });
+}
+
 function updateUserDetails(id, role, userDetails, callback) {
     var objectToSave = {};
     objectToSave[role] = userDetails;
@@ -63,5 +69,5 @@ function unfollow(user, id, role, callback) {
     }
 }
 
-module.exports = {saveUserNew: saveUserNew, updateUserDetails: updateUserDetails,
+module.exports = {getUser: getUser, saveUserNew: saveUserNew, updateUserDetails: updateUserDetails,
     postReview: postReview, getReviews: getReviews, followUser: follow, unfollowUser: unfollow};
