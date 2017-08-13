@@ -90,9 +90,6 @@ body{
   margin-top: -10px!important;
   font-size: 90%;
 }
-.dropdown-button:hover{
-  background: none;
-}
 .post-feed{
   padding: 2%;
   /*background: #ccc;*/
@@ -174,8 +171,6 @@ body{
     margin-left: -45px;
   }
 }
-
-
 
 header {
   position: fixed;
