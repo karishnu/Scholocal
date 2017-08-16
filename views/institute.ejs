@@ -19,7 +19,10 @@
    <div class="row faculty-profile-large">
      <div class="col m3 l3 stats hide-on-small-only">
        <br><br>
-       <img src="/images/profile1.png" style="width: 100%">
+       <img id="profileImage" src="/images/profile1.png" style="width: 100%">
+       <form id="profileForm" method="post" action="../profile/image" enctype="multipart/form-data">
+       <input type="file" id="imgupload" style="display:none" name="image"/>
+       </form>
        <h4 class="white-text" style="text-decoration: underline;">Stats</h4>
        <p class="header">Rating:</p>
        <p>
@@ -284,9 +287,11 @@
     $('select').material_select();
     var gallery = $('.gallery a').simpleLightbox();
   })
-  function fileTrigger(){
-    $('input[type=file]').click();
-  }
+  $('#profileImage').click(function(){ $('#imgupload').trigger('click'); });
+  $('#imgupload').change(function() {
+      $('#profileForm').submit();
+  });
+
   var ismobile = navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i) != null
   var touchorclick = (ismobile)? 'touchstart' : 'click'
   var searchcontainer = document.getElementById('searchcontainer')

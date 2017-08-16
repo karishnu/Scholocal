@@ -1,11 +1,18 @@
 const User = require("../models/user").User;
-var Review = require('../models/review').Review;
+const Review = require('../models/review').Review;
+const fs = require('fs');
 
 function saveUserNew(query, callback) {
     const user = new User(query);
 
     user.save(function (err, user) {
         callback(err, user);
+    });
+}
+
+function saveUserImage(userId, imageName, callback) {
+    User.findByIdAndUpdate(userId, {image_name: imageName}, function (err, result) {
+        callback(err, result);
     });
 }
 

@@ -10,6 +10,7 @@ const userSchema = mongoose.Schema({
     name_last: {type: String, required: true},
     mobile: {type: String},
     address: {type: String},
+    image_name: {type: String},
     description: {type: String},
     role: {type: String, required: true, enum: ['student', 'faculty', 'institute']},
     dob: {type: String},
