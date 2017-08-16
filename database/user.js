@@ -16,6 +16,18 @@ function saveUserImage(userId, imageName, callback) {
     });
 }
 
+function getUserImageName(userId, callback) {
+    console.log(userId);
+    User.findById(userId, function (err, user) {
+        if(err){
+            callback(err, null);
+        }
+        else {
+            callback(null, user.image_name);
+        }
+    });
+}
+
 function getUser(id, callback) {
     User.findById(id, function (err, user) {
        callback(err, user);
@@ -77,4 +89,5 @@ function unfollow(user, id, role, callback) {
 }
 
 module.exports = {getUser: getUser, saveUserNew: saveUserNew, updateUserDetails: updateUserDetails,
-    postReview: postReview, getReviews: getReviews, followUser: follow, unfollowUser: unfollow};
+    postReview: postReview, getReviews: getReviews, followUser: follow, unfollowUser: unfollow, saveUserImage: saveUserImage,
+    getUserImageName: getUserImageName};

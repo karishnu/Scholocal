@@ -17,7 +17,10 @@
    <div class="row faculty-profile-large">
      <div class="col m3 l3 stats hide-on-small-only">
        <br><br>
-       <img src="/images/profile1.png" style="width: 100%">
+       <img id="profileImage" src="../profile/image?id= + <%= profile._id %>" style="width: 100%">
+       <form id="profileForm" method="post" action="../profile/image" enctype="multipart/form-data">
+         <input type="file" id="imgupload" style="display:none" name="image"/>
+       </form>
        <h4 class="white-text" style="text-decoration: underline;">Stats</h4>
        <p class="header">Rating:</p>
        <p>
@@ -71,7 +74,10 @@
             </div>
             <div class="row stats hide-on-med-and-up">
               <br><br>
-              <img src="/images/profile1.png" style="width: 100%">
+              <img id="profileImage" src="../profile/image?id= + <%= profile._id %>" style="width: 100%">
+              <form id="profileForm" method="post" action="../profile/image" enctype="multipart/form-data">
+                <input type="file" id="imgupload" style="display:none" name="image"/>
+              </form>
               <h4 class="white-text" style="text-decoration: underline;">Stats</h4>
               <p class="header">Rating:</p>
               <p>
