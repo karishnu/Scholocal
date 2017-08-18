@@ -22,8 +22,11 @@ function getUserImageName(userId, callback) {
         if(err){
             callback(err, null);
         }
-        else {
+        else if(user.image_name!=null){
             callback(null, user.image_name);
+        }
+        else {
+            callback(null, null);
         }
     });
 }

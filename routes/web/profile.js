@@ -23,18 +23,27 @@ router.get('/', function (req, res, next) {
 });
 
 router.get('/image', function (req, res, next) {
+
+    var id = null;
+
     if(req.query.id) {
-        db.getUserImageName(req.query.id, function (err, name) {
-            res.sendFile('../../uploads/images/profile/' + name);
-        });
+        id = req.query.id;
     }
     else {
-        db.getUserImageName(req.decoded._doc._id, function (err, name) {
-            res.sendFile(name, { root: path.join(__dirname, '../../uploads/images/profile')}, function (err, result) {
+        id = req.decoded._doc._id;
+    }
+
+    db.getUserImageName(id, function (err, name) {
+
+        if(name==null){
+            res.status(404).send("Not found.");
+        }
+        else {
+            res.sendFile(name, {root: path.join(__dirname, '../../uploads/images/profile/')}, function (err, result) {
                 console.log(err);
             });
-        });
-    }
+        }
+    });
 });
 
 router.post('/image', function (req, res, next) {
