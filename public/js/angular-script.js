@@ -130,7 +130,7 @@ app.controller('studentController', function($scope, $http){
     // $http.get('/web/student/review?id=' + $scope.id).then(function(response){
     //   $scope.reviews = response.data.result;
     // });
-    $http.get('/web/student/post').then(function(response){
+    $http.get('/web/student/post?id=' + $scope.id).then(function(response){
       $scope.posts = response.data.result;
       console.log($scope.posts)
     });
