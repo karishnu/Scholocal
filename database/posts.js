@@ -57,6 +57,8 @@ function getFeed(user_id, dateAfter, callback) {
        Post.find({posted_by: result.following, time: {$lte: new Date(dateAfter)}})
            .limit(20)
            .sort('-time')
+           .populate("posted_by", "name_first name_last role")
+           .populate("comment.posted_by", "name_first name_last role")
            .exec(function (err, posts) {
                callback(err, posts);
            });
