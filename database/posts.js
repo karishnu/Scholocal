@@ -54,9 +54,9 @@ function commentOnPost(id_post, id_commenter, text, callback) {
 
 function getFeed(user_id, dateAfter, callback) {
     User.findById(user_id, function (err, result) {
-       Post.find({posted_by: result.following, createdOn: {$lte: dateAfter}})
+       Post.find({posted_by: result.following, time: {$lte: new Date(dateAfter)}})
            .limit(20)
-           .sort('-createdOn')
+           .sort('-time')
            .exec(function (err, posts) {
                callback(err, posts);
            });

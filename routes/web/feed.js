@@ -15,7 +15,7 @@ router.get('/', function (req, res, next) {
 });
 
 router.get('/posts', function (req, res, next) {
-    postDb.getFeed(req.decoded._doc._id, req.body.timeAfter, function (err, posts) {
+    postDb.getFeed(req.decoded._doc._id, req.query.timeAfter, function (err, posts) {
         res.json({
             result: posts
         });

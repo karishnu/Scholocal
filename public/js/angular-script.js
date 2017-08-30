@@ -145,7 +145,7 @@ app.controller('studentController', function($scope, $http){
 
 app.controller('feedController', function($scope, $http){
   $scope.init = function(){
-    $http.get('/web/feed/posts?timeAfter='+new Date()).then(function(response){
+    $http.get('/web/feed/posts?timeAfter='+(new Date()).toISOString()).then(function(response){
       console.log(response);
       if(response.data.result.length == 0){
         Materialize.toast("Some Error! Please Try again", 1000);

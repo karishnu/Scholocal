@@ -74,7 +74,7 @@ function follow(user, id, role, callback) {
         callback("You can't follow yourself!", null);
     }
     else {
-        User.updateOne({_id: id, role: role}, {$addToSet: {following: user}}, function (err, result) {
+        User.updateOne({_id: id}, {$addToSet: {following: user}}, function (err, result) {
             callback(err, result);
         });
     }
