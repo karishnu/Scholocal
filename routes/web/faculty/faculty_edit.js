@@ -21,7 +21,7 @@ router.get('/', function (req, res, next) {
         uname = req.query.uname;
     }
     else {
-        uname = req.decoded._doc.email;
+        uname = req.decoded._doc._id;
     }
 
     database.getFacultyProfile(uname, function (err, inst) {
