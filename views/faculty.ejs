@@ -17,7 +17,7 @@
    <div class="row faculty-profile-large">
      <div class="col m3 l3 stats hide-on-small-only">
        <br><br>
-       <img id="profileImage" src="../profile/image?id= + <%= faculty._id %>" style="width: 100%">
+       <img id="profileImage" src="../profile/image?id=<%= faculty._id %>" style="width: 100%">
        <form id="profileForm" method="post" action="../profile/image" enctype="multipart/form-data">
          <input type="file" id="imgupload" style="display:none" name="image"/>
        </form>
@@ -74,7 +74,7 @@
             </div>
             <div class="row stats hide-on-med-and-up">
               <br><br>
-              <img id="profileImage" src="../profile/image?id= + <%= faculty._id %>" style="width: 100%">
+              <img id="profileImage" src="../profile/image?id=<%= faculty._id %>" style="width: 100%">
               <form id="profileForm" method="post" action="../profile/image" enctype="multipart/form-data">
                 <input type="file" id="imgupload" style="display:none" name="image"/>
               </form>
@@ -250,9 +250,10 @@
     $(".button-collapse").sideNav();
     $('select').material_select();
   })
-  function fileTrigger(){
-    $('input[type=file]').click();
-  }
+  $('#profileImage').click(function(){ $('#imgupload').trigger('click'); });
+  $('#imgupload').change(function() {
+      $('#profileForm').submit();
+  });
   var ismobile = navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i) != null
   var touchorclick = (ismobile)? 'touchstart' : 'click'
   var searchcontainer = document.getElementById('searchcontainer')
