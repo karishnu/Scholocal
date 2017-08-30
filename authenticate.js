@@ -87,7 +87,8 @@ function authenticate_token(req, res, next, token) {
         jwt.verify(token, consts.secret, function (err, decoded) {
             console.log(err);
             if (err) {
-                return res.json({code: '1', success: false, message: 'Failed to authenticate token.'});
+                return res.redirect('/web/logout');
+                //return res.json({code: '1', success: false, message: 'Failed to authenticate token.'});
             } else {
                 // if everything is good, save to request for use in other routes
                 req.decoded = decoded;
@@ -96,10 +97,11 @@ function authenticate_token(req, res, next, token) {
         });
 
     } else {
-        return res.status(403).send({
+        return res.redirect('/web/logout');
+/*        return res.status(403).send({
             success: false,
             message: 'No token provided.'
-        });
+        });*/
     }
 }
 

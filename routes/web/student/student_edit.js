@@ -17,12 +17,7 @@ router.get('/', function (req, res, next) {
 
     var uname;
 
-    if(req.query.uname) {
-        uname = req.query.uname;
-    }
-    else {
-        uname = req.decoded._doc.email;
-    }
+    uname = req.decoded._doc._id;
 
     database.getStudentProfile(uname, function (err, student) {
         res.render('studentedit', {profile: student});
@@ -32,7 +27,7 @@ router.get('/', function (req, res, next) {
 router.post('/', function (req, res, next) {
     console.log(req.body);
     database_user.updateUserDetails(req.decoded._doc._id, "student", req.body, function (err, response) {
-       res.redirect('../');
+        res.redirect('../');
     });
 });
 

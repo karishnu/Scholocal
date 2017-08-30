@@ -18,6 +18,11 @@ router.get('/', (req, res) => {
     res.status(200).json({ message: 'Connected web!' });
 });
 
+router.get('/logout', (req, res) => {
+    res.clearCookie("x-access-token");
+    res.redirect('../home');
+});
+
 router.use('/auth', auth);
 router.use('/faculty', faculty);
 router.use('/profile', profile);

@@ -17,12 +17,7 @@ router.get('/', function (req, res, next) {
 
     var uname;
 
-    if(req.query.uname) {
-        uname = req.query.uname;
-    }
-    else {
-        uname = req.decoded._doc.email;
-    }
+    uname = req.decoded._doc._id;
 
     database.getInstituteProfile(uname, function (err, inst) {
         res.render('instituteedit', {profile: inst});
@@ -32,7 +27,7 @@ router.get('/', function (req, res, next) {
 router.post('/', function (req, res, next) {
     console.log(req.body);
     database_user.updateUserDetails(req.decoded._doc._id, "institute", req.body, function (err, response) {
-       res.redirect('../');
+        res.redirect('../');
     });
 });
 
