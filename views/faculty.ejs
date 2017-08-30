@@ -215,9 +215,7 @@
                     <% faculty.faculty.experience.forEach(function(experience) { %>
                   <li>
                     <div class="experience-field">
-                      <div class="experience-title">
-                        <p><%= experience.details %></p>
-                      </div>
+                      <div class="experience-title"><p><%= experience.details %></p></div>
                       <div class="experience-details">
                         <p class="experience-duration"><%= experience.year %></p>
                         <p class="experience-location"><%= experience.location %></p>
@@ -228,11 +226,11 @@
                 </ul>
               </div>
             </div>
-          </div>
           <div class="col m4 l4 hide-on-small-only">
             <a href="#" class="follow-button" ng-click="follow(true)"><i class="fa fa-rss"></i>&nbsp&nbspFollow</a>
             <a href="#" class="follow-button">Download Profile</a>
           </div>
+        </div>
         </div>
       </div>
      </div>
