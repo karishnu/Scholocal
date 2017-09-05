@@ -47,6 +47,14 @@ router.post('/review', function (req, res, next) {
     });
 });
 
+router.post('/achievement', function (req, res, next) {
+    database.saveFacultyAchievement(req.decoded._doc._id, req.body.details, req.body.year, function (err, faculty) {
+        res.json({
+            result: faculty
+        })
+    })
+});
+
 router.get('/review', function (req, res, next) {
    dbuser.getReviews(req.query.id, "faculty", function (err, result) {
       res.json({

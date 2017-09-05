@@ -19,5 +19,11 @@ function getFaculties(query, callback) {
     });
 }
 
+function saveFacultyAchievement(id, details, year, callback) {
+    User.findOneAndUpdate({_id: id, role: 'faculty'}, {$push: {achievements: {details: details, year: year}}}, function (err, faculty) {
+        callback(err, faculty);
+    });
+}
+
 module.exports = {getFacultyProfile: getFacultyProfile,
-    getFaculties: getFaculties, getProfile: getProfile};
+    getFaculties: getFaculties, getProfile: getProfile, saveFacultyAchievement: saveFacultyAchievement};

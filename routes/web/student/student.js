@@ -16,7 +16,6 @@ router.use(function (req, res, next) {
 router.use(express.static(path.join(__dirname, '../../../public')));
 
 router.get('/', function (req, res, next) {
-
     var uname;
 
     if(req.query.id) {
@@ -29,6 +28,14 @@ router.get('/', function (req, res, next) {
     database.getStudentProfile(uname, function (err, student) {
         res.render('student', {profile: student});
     });
+});
+
+router.post('/achievement', function (req, res, next) {
+    database.saveStudentAchievement(req.decoded._doc._id, req.body.details, req.body.year, function (err, faculty) {
+        res.json({
+            result: faculty
+        })
+    })
 });
 
 router.get('/all', function (req, res, next) {

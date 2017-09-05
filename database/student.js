@@ -19,4 +19,10 @@ function getStudents(query, callback) {
     });
 }
 
-module.exports = {getStudentProfile: getStudentProfile, getStudents: getStudents, getProfile: getProfile};
+function saveStudentAchievement(id, details, year, callback) {
+    User.findOneAndUpdate({_id: id, role: 'student'}, {$push: {achievements: {details: details, year: year}}}, function (err, student) {
+        callback(err, student);
+    });
+}
+
+module.exports = {getStudentProfile: getStudentProfile, getStudents: getStudents, getProfile: getProfile, saveStudentAchievement: saveStudentAchievement};
