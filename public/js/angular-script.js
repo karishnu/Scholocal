@@ -35,6 +35,13 @@ app.controller('facultyController', function($scope, $http){
 
     }
   }
+  $scope.addAchievement = function(){
+    console.log({details: $scope.achievementDetails, year: $scope.achievementYear});
+    $http.post('/web/faculty/achievement', {details: $scope.achievementDetails, year: $scope.achievementYear})
+    .then(function(response){
+      console.log(response);
+    })
+  }
   $scope.postFeed = function(){
     $http.post('/web/faculty/post', {text: $scope.postText}).then(function(response){
       $scope.posts.unshift(response.data.result);

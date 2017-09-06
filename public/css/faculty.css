@@ -309,10 +309,40 @@ div#searchcontainer.opensearch form {
 }
 #sidenav-overlay{
   background-color: rgba(0,0,0,0.1);
+  display: none;
 }
 .comment p{
   background: white;
 }
 .comment{
   border: 1px solid #ddd;
+}
+.post-feed input{
+  height: 30px;
+  border: 1px solid grey;
+  border-radius: 2px;
+}
+#achievements .post-btn{
+  padding: 2% 4%;
+  background: #002163;
+  color: white;
+  border: none;
+  outline: none;
+  position: absolute;
+  left: 70%;
+  top: -1%;
+}
+.post-btn:disabled{
+  background: grey!important;
+}
+
+nav .brand-logo{
+  position: absolute;
+  top: 5px;
+  right: 20px;
+}
+
+input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):focus:not([readonly]), input[type=password]:not(.browser-default):focus:not([readonly]), input[type=email]:not(.browser-default):focus:not([readonly]), input[type=url]:not(.browser-default):focus:not([readonly]), input[type=time]:not(.browser-default):focus:not([readonly]), input[type=date]:not(.browser-default):focus:not([readonly]), input[type=datetime]:not(.browser-default):focus:not([readonly]), input[type=datetime-local]:not(.browser-default):focus:not([readonly]), input[type=tel]:not(.browser-default):focus:not([readonly]), input[type=number]:not(.browser-default):focus:not([readonly]), input[type=search]:not(.browser-default):focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]){
+  border: 1px solid grey;
+  box-shadow: none;
 }
