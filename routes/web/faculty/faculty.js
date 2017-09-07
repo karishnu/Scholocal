@@ -18,15 +18,18 @@ router.use(function (req, res, next) {
 router.get('/', function (req, res, next) {
 
     var uname;
+    var self = false;
 
     if(req.query.id) {
         uname = req.query.id;
     }
     else {
+        self = true;
         uname = req.decoded._doc._id;
     }
 
     database.getFacultyProfile(uname, function (err, faculty) {
+        faculty.self = self;
         res.render('faculty', {faculty: faculty});
     });
 });

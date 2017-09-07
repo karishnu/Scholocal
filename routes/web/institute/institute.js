@@ -19,15 +19,18 @@ router.use(function (req, res, next) {
 router.get('/', function (req, res, next) {
 
     var uname;
+    var self = false;
 
     if(req.query.id) {
         uname = req.query.id;
     }
     else {
         uname = req.decoded._doc._id;
+        self = true;
     }
 
     database.getInstituteProfile(uname, function (err, institute) {
+        institute.self = self;
         res.render('institute', {profile: institute});
     });
 });
