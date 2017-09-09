@@ -33,7 +33,12 @@ app.get('/', function (req, res) {
 });
 
 app.get('/home', function (req, res) {
-    res.render('index');
+    if(req.query.err){
+        res.render('index', {error: true});
+    }
+    else {
+        res.render('index', {error: false});
+    }
 });
 
 
