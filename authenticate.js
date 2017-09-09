@@ -9,7 +9,8 @@ function authenticate_web(req, res) {
                 res.send({code: '1', message: err});
             }
             else if (!user) {
-                res.send({code: '1', message: 'User Not Found!'});
+                //res.send({code: '1', message: 'User Not Found!'});
+                res.redirect('../../home?err="Invalid Username or password!"');
             }
             else {
                 const token = jwt.sign(user, consts.secret);

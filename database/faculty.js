@@ -20,8 +20,16 @@ function getFaculties(query, callback) {
 }
 
 function saveFacultyAchievement(id, details, year, callback) {
-    User.findOneAndUpdate({_id: id, role: 'faculty'}, {$push: {achievements: {details: details, year: year}}}, function (err, faculty) {
-        callback(err, faculty);
+    User.findOne({_id: id, role: 'faculty'}, function (err, faculty) {
+        if(!err){
+            faculty.faculty.achievements.push({details: details, year: year})
+            faculty.save(function (err, result) {
+               callback(err, result);
+            });
+        }
+        else {
+            callback(err, null);
+        }
     });
 }
 

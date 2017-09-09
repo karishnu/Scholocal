@@ -112,6 +112,7 @@
                 </ul>
               </div>
               <div id="timeline" class="col s12">
+                <% if(faculty.self) {%>
                 <div class="post-feed">
                   <textarea name="data" placeholder="Ask A Question" ng-model="postText" resizable="false"></textarea>
                   <input type="file" style="display: none;" accept="image/*">
@@ -119,6 +120,7 @@
                     <button type="button" ng-click="postFeed()" class="right post-btn">Post</button>
                   </p>
                 </div>
+                <% } %>
                 <div class="feed-single"  style="margin-bottom: 20px;" ng-repeat="post in posts">
                   <div class="feed-header">
                     <img height="70px" width="70px" src="../profile/image?id={{post.posted_by._id}}">
@@ -153,6 +155,7 @@
               </div>
               <div id="reviews" class="col s12">
                 <br><br>
+                <% if(!faculty.self) {%>
                 <div class="post-feed row">
 
                   <form action="#" method="post" ng-submit="addReview()">
@@ -174,6 +177,7 @@
                     </div>
                   </form>
                 </div>
+                <% } %>
                 <div class="review row" ng-repeat="review in reviews | orderBy:'+':true">
                   <div class="col s3">
                     <img src="/images/profile.png">

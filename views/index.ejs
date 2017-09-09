@@ -154,6 +154,12 @@
     var searchfield = document.getElementById('search-terms')
     var searchlabel = document.getElementById('search-label')
 
+    var error = <%= error %>;
+
+    if(error!=null && error){
+        $('#myModal').modal('show');
+    }
+
     searchlabel.addEventListener(touchorclick, function(e){ // when user clicks on search label
       searchcontainer.classList.toggle('opensearch') // add or remove 'opensearch' to searchcontainer
       if (!searchcontainer.classList.contains('opensearch')){ // if hiding searchcontainer

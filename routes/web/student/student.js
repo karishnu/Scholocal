@@ -17,15 +17,18 @@ router.use(express.static(path.join(__dirname, '../../../public')));
 
 router.get('/', function (req, res, next) {
     var uname;
+    var self = false;
 
     if(req.query.id) {
         uname = req.query.id;
     }
     else {
         uname = req.decoded._doc._id;
+        self = true;
     }
 
     database.getStudentProfile(uname, function (err, student) {
+        student.self = self;
         res.render('student', {profile: student});
     });
 });
