@@ -20,8 +20,16 @@ function getStudents(query, callback) {
 }
 
 function saveStudentAchievement(id, details, year, callback) {
-    User.findOneAndUpdate({_id: id, role: 'student'}, {$push: {achievements: {details: details, year: year}}}, function (err, student) {
-        callback(err, student);
+    User.findOne({_id: id, role: 'student'}, function (err, student) {
+        if(!err){
+            student.student.achievements.push({details: details, year: year});
+            student.save(function (err, result) {
+                callback(err, result);
+            });
+        }
+        else {
+            callback(err, null);
+        }
     });
 }
 
