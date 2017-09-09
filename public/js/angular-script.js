@@ -128,6 +128,13 @@ app.controller('studentController', function($scope, $http){
       $scope.getPosts();
     });
   }
+  $scope.addAchievement = function(){
+    console.log({details: $scope.achievementDetails, year: $scope.achievementYear});
+    $http.post('/web/student/achievement', {details: $scope.achievementDetails, year: $scope.achievementYear})
+    .then(function(response){
+      console.log(response);
+    })
+  }
   $scope.postFeed = function(){
     $http.post('/web/student/post', {text: $scope.postText}).then(function(response){
       $scope.posts.unshift(response.data.result);

@@ -205,7 +205,15 @@
                 </div>
               </div>
               <div id="achievements" class="col s12">
-                <a href="#" class="right" style="font-size: 150%"><i class="fa fa-pencil"></i></a>
+                <div class="post-feed row">
+                  <form name="achievementForm" ng-submit="addAchievement()">
+                    <input name="achievement" placeholder="Achievement Details" ng-model="achievementDetails" required>
+                    <input name="achievement" placeholder="Achievement Year" ng-model="achievementYear" required>
+                    <div class="col push-s1 s6 m8 l8">
+                      <button type="submit" ng-disabled="achievementForm.$invalid" class="left post-btn">Post</button>
+                    </div>
+                  </form>
+                </div>
                 <ul>
                     <% profile.student.achievements.forEach(function(experience) { %>
                   <li>
