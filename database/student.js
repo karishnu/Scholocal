@@ -33,4 +33,18 @@ function saveStudentAchievement(id, details, year, callback) {
     });
 }
 
-module.exports = {getStudentProfile: getStudentProfile, getStudents: getStudents, getProfile: getProfile, saveStudentAchievement: saveStudentAchievement};
+function saveStudentProject(id, details, year, callback) {
+    User.findOne({_id: id, role: 'student'}, function (err, student) {
+        if(!err){
+            student.student.projects.push({details: details, year: year});
+            student.save(function (err, result) {
+                callback(err, result);
+            });
+        }
+        else {
+            callback(err, null);
+        }
+    });
+}
+
+module.exports = {getStudentProfile: getStudentProfile, getStudents: getStudents, getProfile: getProfile, saveStudentAchievement: saveStudentAchievement, saveStudentProject: saveStudentProject};

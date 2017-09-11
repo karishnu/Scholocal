@@ -34,12 +34,21 @@ router.get('/', function (req, res, next) {
 });
 
 router.post('/achievement', function (req, res, next) {
-    database.saveStudentAchievement(req.decoded._doc._id, req.body.details, req.body.year, function (err, faculty) {
+    database.saveStudentAchievement(req.decoded._doc._id, req.body.details, req.body.year, function (err, student) {
         res.json({
-            result: faculty
+            result: student
         })
     })
 });
+
+router.post('/project', function (req, res, next) {
+    database.saveStudentProject(req.decoded._doc._id, req.body.details, req.body.year, function (err, student) {
+        res.json({
+            result: student
+        })
+    })
+});
+
 
 router.get('/all', function (req, res, next) {
     database.getStudents(req.query, function (err, result) {

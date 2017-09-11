@@ -33,5 +33,19 @@ function saveFacultyAchievement(id, details, year, callback) {
     });
 }
 
+function saveFacultyExperience(id, details, year, location, callback) {
+    User.findOne({_id: id, role: 'faculty'}, function (err, faculty) {
+        if(!err){
+            faculty.faculty.experience.push({details: details, year: year, location: location});
+            faculty.save(function (err, result) {
+                callback(err, result);
+            });
+        }
+        else {
+            callback(err, null);
+        }
+    });
+}
+
 module.exports = {getFacultyProfile: getFacultyProfile,
-    getFaculties: getFaculties, getProfile: getProfile, saveFacultyAchievement: saveFacultyAchievement};
+    getFaculties: getFaculties, getProfile: getProfile, saveFacultyAchievement: saveFacultyAchievement, saveFacultyExperience: saveFacultyExperience};
